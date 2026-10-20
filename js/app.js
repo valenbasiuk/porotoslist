@@ -239,7 +239,7 @@ function renderInfo() {
     <div class="view-head"><h2>info</h2></div>
     <div class="table prose">
       ${paragraphs}
-      <p>cada nivel da <b>${pointsFor(1)}</b> puntos en el #1 y va bajando un 8% por puesto
-        (#5: ${pointsFor(5)}, #10: ${pointsFor(10)}, #25: ${pointsFor(25)}). el verificador también suma.</p>
+      <p>cada nivel da <b>${pointsFor(1)}</b> puntos en el #1 y va bajando 8% por puesto
+        (#5: ${pointsFor(5)}, #10: ${pointsFor(10)}, #25: ${pointsFor(25)}).</p>
     </div>`;
 }
