@@ -46,9 +46,9 @@ export function ytId(url) {
 
 export function thumbFor(level) {
   if (level.thumbnail) return level.thumbnail;
-  if (level.background) return level.background;
   const id = ytId(level.video);
-  return id ? `https://i.ytimg.com/vi/${id}/mqdefault.jpg` : null;
+  if (id) return `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
+  return level.background || null;
 }
 
 // Attributes that put the level's background capture behind an element.
