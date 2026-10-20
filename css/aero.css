@@ -490,7 +490,29 @@ a.trow:hover, .trow.clickable:hover {
 .kv .trow { min-height: 26px; padding: 3px 8px; }
 .kv .k { color: var(--ink-soft); }
 
-.victors { --cols: 22px minmax(0, 1fr) 130px 60px; }
+.victors { --cols: 22px minmax(0, 1fr) 76px 120px 56px; }
+
+.enjoy { display: flex; align-items: center; gap: 12px; padding: 10px 12px; }
+.enjoy-score { font-size: 18px; font-weight: 600; color: var(--heading); }
+.meter {
+  width: 180px;
+  height: 15px;
+  flex: none;
+  border: 1px solid #8c8c8c;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #dcdcdc, #f3f3f3);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+:root[data-theme="night"] .meter { border-color: #000; background: linear-gradient(180deg, #111, #2a2a2a); }
+.meter i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(180deg, #e3ffe0 0%, #8fe48a 40%, #2fb52f 50%, #61d961 100%);
+  box-shadow: inset -1px 0 0 rgba(0, 80, 0, 0.35);
+}
+.enjoy-input { width: 64px; height: 22px; text-align: right; padding: 0 4px; color: var(--ink); background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 2px; }
+.enjoy-input:focus { outline: none; border-color: var(--input-focus); }
 .board { --cols: 26px minmax(0, 1fr) 60px minmax(0, 1.1fr) 60px; }
 .board .pts { font-weight: 700; color: var(--heading); }
 .board-detail {
@@ -599,7 +621,7 @@ dialog .titlebar h1 { font-size: 15px; }
 .field.full { grid-column: 1 / -1; }
 .field input, .field select, .field textarea { padding: 3px 6px; font-size: 13px; min-height: 24px; }
 
-.comp-add { display: grid; grid-template-columns: 1.3fr 1fr 1.6fr auto; gap: 8px; align-items: end; margin-top: 10px; }
+.comp-add { display: grid; grid-template-columns: 1.3fr 1fr 1.5fr 0.7fr auto; gap: 8px; align-items: end; margin-top: 10px; }
 
 .toast {
   position: fixed;
@@ -643,7 +665,9 @@ dialog .titlebar h1 { font-size: 15px; }
   .board { --cols: 24px minmax(0, 1fr) 56px; }
   .board .c-count, .board .c-hardest { display: none; }
   .board-detail { padding-left: 10px; }
-  .victors { --cols: 22px minmax(0, 1fr) 56px; }
+  .victors { --cols: 22px minmax(0, 1fr) 64px 50px; }
+  .enjoy { flex-wrap: wrap; }
+  .meter { width: 100%; }
   .victors .c-date { display: none; }
   .kv { --cols: 100px minmax(0, 1fr); }
   .admin { --cols: 12px 44px minmax(0, 1fr); }

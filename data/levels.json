@@ -40,7 +40,8 @@
       "completions": [
         {
           "player": "valen",
-          "date": "2026-10-13"
+          "date": "2026-10-13",
+          "enjoyment": 9
         },
         {
           "player": "HolaGD",
@@ -60,7 +61,8 @@
       "completions": [
         {
           "player": "valen",
-          "date": "2026-10-12"
+          "date": "2026-10-12",
+          "enjoyment": 8
         },
         {
           "player": "HolaGD",
@@ -85,7 +87,8 @@
       "completions": [
         {
           "player": "valen",
-          "date": "2026-10-15"
+          "date": "2026-10-15",
+          "enjoyment": 10
         },
         {
           "player": "HolaGD",

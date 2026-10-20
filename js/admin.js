@@ -1,6 +1,6 @@
 import {
   loadData, normalize, esc, fmtDate, today, slugify,
-  victorsOf, buildLeaderboard, initChrome, toast, ICONS,
+  victorsOf, buildLeaderboard, parseEnjoyment, initChrome, toast, ICONS,
 } from './common.js';
 
 const DRAFT_KEY = 'porotos-admin-draft';
@@ -340,15 +340,33 @@ function paintComps() {
   document.getElementById('compTitle').textContent = `victors · #${compIndex + 1} ${level.name}`;
   const victors = victorsOf(level);
   document.getElementById('compRows').innerHTML = `
-    <div class="thead"><span>#</span><span>jugador</span><span class="c-date">fecha</span><span></span></div>
+    <div class="thead"><span>#</span><span>jugador</span><span class="num">enjoyment</span><span class="c-date">fecha</span><span></span></div>
     ${victors.length ? victors.map((v, i) => `
     <div class="trow">
       <span class="soft">${i + 1}</span>
       <span class="cell">${esc(v.player)}${v.verifier ? '<span class="tag">verificador</span>' : ''}${v.video ? ` · <a href="${esc(v.video)}" target="_blank" rel="noopener">video</a>` : ''}</span>
+      <input class="enjoy-input" type="text" inputmode="decimal" placeholder="—" data-enjoy="${esc(v.player)}"
+        value="${typeof v.enjoyment === 'number' ? v.enjoyment : ''}" aria-label="enjoyment de ${esc(v.player)}">
       <span class="cell soft c-date">${fmtDate(v.date)}</span>
       ${v.verifier ? '<span></span>' : `<button class="btn icon red" data-player="${esc(v.player)}" title="borrar">${ICONS.trash}</button>`}
     </div>`).join('')
     : '<div class="empty">sin completions todavía.</div>'}`;
+  document.querySelectorAll('#compRows [data-enjoy]').forEach((input) => {
+    input.onchange = () => {
+      const score = parseEnjoyment(input.value);
+      input.value = score ?? '';
+      const isVerifier = level.verifier && level.verifier.toLowerCase() === input.dataset.enjoy.toLowerCase();
+      const target = isVerifier ? null : level.completions.find((c) => c.player === input.dataset.enjoy);
+      if (isVerifier) {
+        if (score === null) delete level.verifierEnjoyment;
+        else level.verifierEnjoyment = score;
+      } else if (target) {
+        if (score === null) delete target.enjoyment;
+        else target.enjoyment = score;
+      }
+      changed();
+    };
+  });
   document.querySelectorAll('#compRows [data-player]').forEach((btn) => {
     btn.onclick = () => {
       if (!confirm(`¿borrar la completion de ${btn.dataset.player}?`)) return;
@@ -371,6 +389,8 @@ compForm.addEventListener('submit', (e) => {
   }
   const entry = { player, date: f.date.value || today() };
   if (f.video.value.trim()) entry.video = f.video.value.trim();
+  const score = parseEnjoyment(f.enjoyment.value);
+  if (score !== null) entry.enjoyment = score;
   level.completions.push(entry);
   level.completions.sort((a, b) => String(a.date).localeCompare(String(b.date)));
   changed();
@@ -378,6 +398,7 @@ compForm.addEventListener('submit', (e) => {
   toast(`completion de ${player} agregada`);
   f.player.value = '';
   f.video.value = '';
+  f.enjoyment.value = '';
   f.player.focus();
 });
 

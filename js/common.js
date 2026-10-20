@@ -75,7 +75,7 @@ export function victorsOf(level) {
   const out = [];
   const seen = new Set();
   if (level.verifier) {
-    out.push({ player: level.verifier, date: level.verifiedAt || level.addedAt, video: level.video, verifier: true });
+    out.push({ player: level.verifier, date: level.verifiedAt || level.addedAt, video: level.video, enjoyment: level.verifierEnjoyment, verifier: true });
     seen.add(level.verifier.toLowerCase());
   }
   for (const c of level.completions) {
@@ -84,6 +84,18 @@ export function victorsOf(level) {
     out.push(c);
   }
   return out;
+}
+
+// Average enjoyment (0-10) over the victors who gave one, or null.
+export function enjoymentOf(level) {
+  const scores = victorsOf(level).map((v) => v.enjoyment).filter((n) => typeof n === 'number');
+  if (!scores.length) return null;
+  return { avg: Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 10) / 10, count: scores.length };
+}
+
+export function parseEnjoyment(value) {
+  const n = parseFloat(String(value).replace(',', '.'));
+  return Number.isFinite(n) ? Math.min(10, Math.max(0, Math.round(n * 10) / 10)) : null;
 }
 
 export function buildLeaderboard(levels) {

@@ -1,6 +1,6 @@
 import {
   loadData, esc, ytId, thumbFor, fmtDate, diffCell, rankOrb, pointsFor,
-  victorsOf, buildLeaderboard, initChrome, ICONS,
+  victorsOf, buildLeaderboard, enjoymentOf, initChrome, ICONS,
 } from './common.js';
 
 const view = document.getElementById('view');
@@ -106,6 +106,7 @@ function renderLevel(id) {
   const vid = ytId(level.video);
   const thumb = thumbFor(level);
   const victors = victorsOf(level);
+  const enjoy = enjoymentOf(level);
 
   const media = vid
     ? `<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${vid}" title="${esc(level.name)}"
@@ -121,6 +122,17 @@ function renderLevel(id) {
     ['agregado', fmtDate(level.addedAt)],
   ];
 
+  const enjoyBox = `
+    <div class="box">
+      <div class="box-title">enjoyment</div>
+      <div class="table enjoy">${enjoy
+        ? `<div class="meter" role="meter" aria-valuemin="0" aria-valuemax="10" aria-valuenow="${enjoy.avg}"><i style="width:${enjoy.avg * 10}%"></i></div>
+           <span class="enjoy-score">${enjoy.avg}<span class="soft">/10</span></span>
+           <span class="soft">promedio de ${enjoy.count} ${enjoy.count === 1 ? 'jugador' : 'jugadores'}</span>`
+        : '<span class="soft">nadie puntuó este nivel todavía.</span>'}
+      </div>
+    </div>`;
+
   view.innerHTML = `
     <a class="btn" href="#/">${ICONS.back}lista</a>
     <div class="detail-head">${rankOrb(rank, true)}<h2>${esc(level.name)}</h2></div>
@@ -132,14 +144,16 @@ function renderLevel(id) {
         <div class="trow"><span class="k">${k}</span><span class="cell">${v}</span></div>`).join('')}
       </div>
     </div>
+    ${enjoyBox}
     <div class="box">
       <div class="box-title">victors (${victors.length})</div>
       <div class="table victors">
-        <div class="thead"><span>#</span><span>jugador</span><span class="c-date">fecha</span><span></span></div>
+        <div class="thead"><span>#</span><span>jugador</span><span class="num">enjoyment</span><span class="c-date">fecha</span><span></span></div>
         ${victors.length ? victors.map((v, i) => `
           <div class="trow">
             <span class="soft">${i + 1}</span>
             <span class="cell">${esc(v.player)}${v.verifier ? '<span class="tag">verificador</span>' : ''}</span>
+            <span class="cell num">${typeof v.enjoyment === 'number' ? `${v.enjoyment}<span class="soft">/10</span>` : '<span class="soft">—</span>'}</span>
             <span class="cell soft c-date">${fmtDate(v.date)}</span>
             ${v.video ? `<a href="${esc(v.video)}" target="_blank" rel="noopener">video</a>` : '<span></span>'}
           </div>`).join('')
@@ -206,7 +220,7 @@ function renderChangelog() {
     const name = current
       ? `<a href="#/level/${encodeURIComponent(current.id)}"><b>${esc(current.name)}</b></a>`
       : `<b>${esc(e.level)}</b>`;
-    if (e.type === 'add') return `${name} entró en el puesto #${e.to}`;
+    if (e.type === 'add') return `${name} fue agregado en el top #${e.to}`;
     if (e.type === 'remove') return `${name} salió de la lista (estaba #${e.from})`;
     if (e.type === 'move') return `${name} ${e.to < e.from ? 'subió' : 'bajó'} de #${e.from} a #${e.to}`;
     return name;
