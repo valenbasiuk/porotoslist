@@ -437,7 +437,8 @@ a.trow:hover, .trow.clickable:hover {
 :root[data-theme="night"] .thumb .no-video { color: #888; }
 
 .diff { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; }
-.diff svg { width: 18px; height: 18px; flex: none; }
+.diff svg { width: 24px; height: 24px; flex: none; }
+.diff svg.rated { width: 30px; height: 31px; margin: -5px -3px -2px -3px; }
 
 .people { display: inline-flex; align-items: center; gap: 4px; justify-content: flex-end; }
 .people svg { width: 13px; height: 13px; fill: currentColor; opacity: 0.75; }

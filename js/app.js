@@ -87,7 +87,7 @@ function paintRows() {
         <span class="cell lvl-name">${esc(level.name)}</span>
         <span class="cell soft c-creator">${esc(level.creator || '—')}</span>
         <span class="cell soft c-verifier">${esc(level.verifier || '—')}</span>
-        <span class="cell">${diffCell(level.difficulty)}</span>
+        <span class="cell">${diffCell(level.difficulty, level.rating)}</span>
         <span class="cell num people c-people">${ICONS.people}${victorsOf(level).length}</span>
       </a>`;
   }).join('');
@@ -117,7 +117,7 @@ function renderLevel(id) {
     ['creador', esc(level.creator || '—')],
     ['verificador', esc(level.verifier || '—')],
     ['id del nivel', esc(level.levelId || '—')],
-    ['dificultad', diffCell(level.difficulty) || '—'],
+    ['dificultad', diffCell(level.difficulty, level.rating, true) || '—'],
     ['puntos', pointsFor(rank)],
     ['agregado', fmtDate(level.addedAt)],
   ];

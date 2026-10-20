@@ -367,7 +367,7 @@ function wireDrag(list) {
 const levelDialog = document.getElementById('levelDialog');
 const levelForm = document.getElementById('levelForm');
 let editing = null; // index being edited, or null when adding
-const LEVEL_FIELDS = ['name', 'creator', 'verifier', 'levelId', 'difficulty', 'video', 'verifiedAt', 'thumbnail', 'background', 'description'];
+const LEVEL_FIELDS = ['name', 'creator', 'verifier', 'levelId', 'difficulty', 'rating', 'video', 'verifiedAt', 'thumbnail', 'background', 'description'];
 
 const bgPreview = document.getElementById('bgPreview');
 const bgFile = document.getElementById('bgFile');

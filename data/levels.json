@@ -50,7 +50,8 @@
           "date": "2026-10-14"
         }
       ],
-      "background": "common/niveles/level-unsafe-mvgr83kt.png"
+      "background": "common/niveles/level-unsafe-mvgr83kt.png",
+      "rating": "epic"
     },
     {
       "id": "darkeress",
@@ -100,7 +101,8 @@
         }
       ],
       "description": "tucara a tucara",
-      "background": "common/niveles/cara-a-cara-mvgrbbl7.png"
+      "background": "common/niveles/cara-a-cara-mvgrbbl7.png",
+      "rating": "featured"
     }
   ],
   "changelog": [

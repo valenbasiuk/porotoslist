@@ -125,8 +125,38 @@ export function buildLeaderboard(levels) {
     .sort((a, b) => b.points - a.points || a.name.localeCompare(b.name));
 }
 
-export function demonFace(color = '#a052ff') {
-  return `<svg viewBox="0 0 24 24" aria-hidden="true">
+export const RATINGS = {
+  featured: 'featured',
+  epic: 'epic',
+};
+
+// Fire envelope around the head (GD "epic"): a body hugging the face and
+// tongues rising on both sides toward a central tip. Symmetric around x=12.
+const EPIC_FLAME = 'M12 25.6C17 25.6 21 22.5 22 18Q24.6 15.5 24.2 11.5Q23 13 22.2 13.2Q23.8 9 22.2 4.8'
+  + 'Q21.4 7.2 19.8 8Q19.8 3.5 16.2 0.6Q16.6 4 15.3 5.6Q14.6 2.2 12 -1.8Q9.4 2.2 8.7 5.6Q7.4 4 7.8 0.6'
+  + 'Q4.2 3.5 4.2 8Q2.6 7.2 1.8 4.8Q0.2 9 1.8 13.2Q1 13 -0.2 11.5Q-0.6 15.5 2 18C3 22.5 7 25.6 12 25.6Z';
+
+const RATING_ART = {
+  featured: `
+    <defs><filter id="rtGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1"/></filter></defs>
+    <circle cx="12" cy="14" r="10.3" fill="none" stroke="#ffb300" stroke-width="2.6" filter="url(#rtGlow)" opacity=".9"/>
+    <circle cx="12" cy="14" r="10.3" fill="none" stroke="#fff27a" stroke-width="1.2"/>`,
+  epic: `
+    <defs>
+      <radialGradient id="rtEpic" gradientUnits="userSpaceOnUse" cx="12" cy="15" r="14">
+        <stop offset=".55" stop-color="#fff59a"/><stop offset=".68" stop-color="#ffd23a"/>
+        <stop offset=".84" stop-color="#ff9a12"/><stop offset="1" stop-color="#e8520a"/>
+      </radialGradient>
+      <filter id="rtEpicGlow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="1.1"/></filter>
+    </defs>
+    <path d="${EPIC_FLAME}" fill="#ff7a00" filter="url(#rtEpicGlow)" opacity=".85"/>
+    <path d="${EPIC_FLAME}" fill="url(#rtEpic)" stroke="#c4460a" stroke-width=".5" stroke-linejoin="round"/>
+    <circle cx="12" cy="14" r="9.6" fill="none" stroke="#fff6b0" stroke-width="1"/>`,
+};
+
+export function demonFace(color = '#a052ff', rating = '') {
+  const art = RATING_ART[rating];
+  return `<svg viewBox="${art ? '-3 -4 30 31' : '0 0 24 24'}" class="${art ? `rated ${rating}` : ''}" aria-hidden="true">${art || ''}
     <path d="M3 1.5 8.6 8 4.8 10.2Z M21 1.5 15.4 8 19.2 10.2Z" fill="${color}" stroke="#111" stroke-width="1.2" stroke-linejoin="round"/>
     <circle cx="12" cy="14" r="8.3" fill="${color}" stroke="#111" stroke-width="1.4"/>
     <ellipse cx="9.5" cy="10.3" rx="3.6" ry="1.6" fill="#fff" opacity=".45"/>
@@ -135,10 +165,12 @@ export function demonFace(color = '#a052ff') {
   </svg>`;
 }
 
-export function diffCell(key) {
+export function diffCell(key, rating = '', showRating = false) {
   const d = DIFFICULTIES[key];
   if (!d) return '';
-  return `<span class="diff" title="${esc(d.label)}">${demonFace(d.color)}<span>${esc(d.label)}</span></span>`;
+  const r = RATINGS[rating] ? rating : '';
+  const title = r ? `${d.label} · ${RATINGS[r]}` : d.label;
+  return `<span class="diff" title="${esc(title)}">${demonFace(d.color, r)}<span>${esc(showRating ? title : d.label)}</span></span>`;
 }
 
 export function rankOrb(rank, big = false) {
