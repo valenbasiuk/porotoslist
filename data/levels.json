@@ -82,7 +82,16 @@
       "difficulty": "easy",
       "verifiedAt": "2026-10-15",
       "addedAt": "2026-10-19",
-      "completions": [],
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-15"
+        },
+        {
+          "player": "HolaGD",
+          "date": "2026-10-15"
+        }
+      ],
       "description": "tucara a tucara"
     }
   ],
