@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "title": "porotos list",
+    "info": [
+      "esta es la lista de los niveles más difíciles de nuestro gdps, ordenados por dificultad.",
+      "¿te pasaste uno? mandá el video al grupo y lo agregamos a la lista."
+    ],
+    "gdps": "porotos gdps"
+  },
+  "levels": [
+    {
+      "id": "el-keke",
+      "name": "el keke",
+      "creator": "valenmoe",
+      "verifier": "ejemplo2",
+      "levelId": "123",
+      "difficulty": "extreme",
+      "video": "https://www.youtube.com/watch?v=UYq0xU_7F98",
+      "verifiedAt": "2026-10-19",
+      "addedAt": "2026-10-19",
+      "completions": []
+    },
+    {
+      "id": "aqua-overdrive",
+      "name": "Aqua Overdrive",
+      "creator": "ejemplo1",
+      "verifier": "ejemplo1",
+      "levelId": "101",
+      "difficulty": "extreme",
+      "verifiedAt": "2026-10-10",
+      "description": "Nivel de ejemplo: borralo desde el panel admin.",
+      "addedAt": "2026-10-19",
+      "completions": [
+        {
+          "player": "ejemplo2",
+          "date": "2026-10-15"
+        }
+      ]
+    },
+    {
+      "id": "vista-nightmare",
+      "name": "Vista Nightmare",
+      "creator": "ejemplo2",
+      "verifier": "ejemplo3",
+      "levelId": "102",
+      "difficulty": "insane",
+      "verifiedAt": "2026-10-12",
+      "addedAt": "2026-10-19",
+      "completions": [
+        {
+          "player": "ejemplo1",
+          "date": "2026-10-14"
+        },
+        {
+          "player": "ejemplo2",
+          "date": "2026-10-16"
+        }
+      ]
+    },
+    {
+      "id": "bubble-zone",
+      "name": "Bubble Zone",
+      "creator": "ejemplo3",
+      "verifier": "ejemplo2",
+      "levelId": "103",
+      "difficulty": "hard",
+      "verifiedAt": "2026-10-13",
+      "addedAt": "2026-10-19",
+      "completions": []
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-19",
+      "type": "add",
+      "level": "el keke",
+      "levelId": "el-keke",
+      "from": null,
+      "to": 1
+    },
+    {
+      "date": "2026-10-19",
+      "type": "add",
+      "level": "Bubble Zone",
+      "levelId": "bubble-zone",
+      "from": null,
+      "to": 3
+    },
+    {
+      "date": "2026-10-19",
+      "type": "add",
+      "level": "Vista Nightmare",
+      "levelId": "vista-nightmare",
+      "from": null,
+      "to": 2
+    },
+    {
+      "date": "2026-10-19",
+      "type": "add",
+      "level": "Aqua Overdrive",
+      "levelId": "aqua-overdrive",
+      "from": null,
+      "to": 1
+    }
+  ]
+}

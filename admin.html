@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>porotos list · admin</title>
+  <script>try { if (localStorage.getItem('porotos-theme') === 'night') document.documentElement.dataset.theme = 'night'; } catch {}</script>
+  <link rel="stylesheet" href="css/aero.css">
+</head>
+<body>
+  <main class="aero-window">
+    <header class="titlebar">
+      <span id="logoSlot"></span>
+      <h1>porotos list · admin</h1>
+    </header>
+
+    <div class="pane">
+      <nav class="sidebar" aria-label="acciones">
+        <div class="nav-group">
+          <div class="nav-title">admin</div>
+          <a class="nav-btn active" href="admin.html"><i data-icon="cube"></i>niveles</a>
+          <a class="nav-btn" href="#" id="openSettings"><i data-icon="gear"></i>ajustes</a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-title">sitio</div>
+          <a class="nav-btn" href="index.html" target="_blank"><i data-icon="globe"></i>ver la lista</a>
+        </div>
+        <button class="nav-btn theme-btn" id="themeToggle" type="button"></button>
+      </nav>
+
+      <section class="content" id="view"></section>
+
+      <footer class="statusbar" id="status"><span>cargando…</span></footer>
+    </div>
+  </main>
+
+  <!-- add / edit level -->
+  <dialog class="aero-dialog" id="levelDialog">
+    <form method="dialog" id="levelForm">
+      <div class="titlebar"><h1 id="levelDialogTitle">nuevo nivel</h1></div>
+      <div class="dialog-pane">
+        <div class="dialog-body">
+          <div class="form-grid">
+            <label class="field full">nombre<input name="name" required autocomplete="off"></label>
+            <label class="field">creador(es)<input name="creator" autocomplete="off"></label>
+            <label class="field">verificador<input name="verifier" list="playerList" autocomplete="off"></label>
+            <label class="field">id del nivel<input name="levelId" autocomplete="off"></label>
+            <label class="field">dificultad
+              <select name="difficulty">
+                <option value="">—</option>
+                <option value="easy">easy demon</option>
+                <option value="medium">medium demon</option>
+                <option value="hard">hard demon</option>
+                <option value="insane">insane demon</option>
+                <option value="extreme" selected>extreme demon</option>
+              </select>
+            </label>
+            <label class="field full">video de verificación (youtube)<input name="video" type="url" placeholder="https://youtu.be/…"></label>
+            <label class="field">fecha de verificación<input name="verifiedAt" type="date"></label>
+            <label class="field" id="positionField">puesto<input name="position" type="number" min="1"></label>
+            <label class="field full">miniatura propia (url de imagen, opcional)<input name="thumbnail" type="url"></label>
+            <label class="field full">descripción (opcional)<textarea name="description" rows="2"></textarea></label>
+          </div>
+        </div>
+        <div class="dialog-foot">
+          <button class="btn" value="cancel" formnovalidate>cancelar</button>
+          <button class="btn green" value="ok" id="levelSubmit">agregar</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- completions -->
+  <dialog class="aero-dialog wide" id="compDialog">
+    <div class="titlebar"><h1 id="compTitle">victors</h1></div>
+    <div class="dialog-pane">
+      <div class="dialog-body">
+        <div class="table victors" id="compRows"></div>
+        <form class="comp-add" id="compForm">
+          <label class="field">jugador<input name="player" list="playerList" required autocomplete="off"></label>
+          <label class="field">fecha<input name="date" type="date"></label>
+          <label class="field">video<input name="video" type="url" placeholder="https://…"></label>
+          <button class="btn green" type="submit">agregar</button>
+        </form>
+      </div>
+      <div class="dialog-foot">
+        <button class="btn" id="compClose" type="button">cerrar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- settings -->
+  <dialog class="aero-dialog" id="settingsDialog">
+    <form method="dialog" id="settingsForm">
+      <div class="titlebar"><h1>ajustes</h1></div>
+      <div class="dialog-pane">
+        <div class="dialog-body">
+          <div class="form-grid">
+            <label class="field">título<input name="title" required></label>
+            <label class="field">nombre del gdps<input name="gdps"></label>
+            <label class="field full">texto de info (separá párrafos con una línea en blanco)<textarea name="info" rows="6"></textarea></label>
+          </div>
+        </div>
+        <div class="dialog-foot">
+          <button class="btn" value="cancel" formnovalidate>cancelar</button>
+          <button class="btn green" value="ok">aplicar</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <datalist id="playerList"></datalist>
+
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
