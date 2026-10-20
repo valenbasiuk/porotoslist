@@ -1,5 +1,5 @@
 import {
-  loadData, esc, ytId, thumbFor, fmtDate, diffCell, rankOrb, pointsFor,
+  loadData, esc, bgAttrs, ytId, thumbFor, fmtDate, diffCell, rankOrb, pointsFor,
   victorsOf, buildLeaderboard, enjoymentOf, initChrome, ICONS,
 } from './common.js';
 
@@ -48,7 +48,7 @@ function renderStatus() {
 function renderList() {
   view.innerHTML = `
     <div class="view-head">
-      <h2>niveles</h2>
+      <h2>lista</h2>
       <span class="grow"></span>
       <input class="search" type="search" placeholder="buscar" value="${esc(query)}" aria-label="buscar">
     </div>
@@ -81,7 +81,7 @@ function paintRows() {
   rows.innerHTML = items.map(({ level, rank }) => {
     const thumb = thumbFor(level);
     return `
-      <a class="trow" href="#/level/${encodeURIComponent(level.id)}">
+      <a ${bgAttrs(level, 'trow')} href="#/level/${encodeURIComponent(level.id)}">
         ${rankOrb(rank)}
         <div class="thumb">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : '<span class="no-video">sin video</span>'}</div>
         <span class="cell lvl-name">${esc(level.name)}</span>
@@ -135,7 +135,7 @@ function renderLevel(id) {
 
   view.innerHTML = `
     <a class="btn" href="#/">${ICONS.back}lista</a>
-    <div class="detail-head">${rankOrb(rank, true)}<h2>${esc(level.name)}</h2></div>
+    <div ${bgAttrs(level, 'detail-head')}>${rankOrb(rank, true)}<h2>${esc(level.name)}</h2></div>
     ${media}
     ${level.description ? `<div class="table prose" style="margin-top:12px">${esc(level.description)}</div>` : ''}
     <div class="box">

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <title>porotos list · admin</title>
-  <script>try { if (localStorage.getItem('porotos-theme') === 'night') document.documentElement.dataset.theme = 'night'; } catch {}</script>
+  <script>try { if (localStorage.getItem('porotos-theme') !== 'day') document.documentElement.dataset.theme = 'night'; } catch {}</script>
   <link rel="stylesheet" href="css/aero.css">
 </head>
 <body>
@@ -61,6 +61,14 @@
             <label class="field">fecha de verificación<input name="verifiedAt" type="date"></label>
             <label class="field" id="positionField">puesto<input name="position" type="number" min="1"></label>
             <label class="field full">miniatura propia (url de imagen, opcional)<input name="thumbnail" type="url"></label>
+            <div class="field full">fondo del nivel (captura de una parte icónica)
+              <div class="bg-picker">
+                <div class="bg-preview" id="bgPreview"></div>
+                <input type="hidden" name="background">
+                <label class="btn">elegir imagen<input type="file" id="bgFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden></label>
+                <button class="btn" type="button" id="bgClear">quitar</button>
+              </div>
+            </div>
             <label class="field full">descripción (opcional)<textarea name="description" rows="2"></textarea></label>
           </div>
         </div>

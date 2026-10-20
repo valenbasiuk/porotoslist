@@ -55,12 +55,44 @@ function saveLevels(req, res) {
   });
 }
 
+// Level backgrounds go to common/niveles/<name>.<ext>; responds with the relative path.
+const UPLOAD_DIR = path.join(ROOT, 'common', 'niveles');
+const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif']);
+
+function saveImage(req, res, url) {
+  const ext = path.extname(url.searchParams.get('name') || '').toLowerCase();
+  const base = path.basename(url.searchParams.get('name') || '', ext).replace(/[^a-z0-9-]/gi, '').slice(0, 60);
+  if (!base || !IMAGE_EXTS.has(ext)) return send(res, 400, 'Nombre o formato de imagen inválido');
+  const chunks = [];
+  let size = 0;
+  req.on('data', (chunk) => {
+    size += chunk.length;
+    if (size > 10_000_000) return req.destroy();
+    chunks.push(chunk);
+  });
+  req.on('end', () => {
+    fs.mkdir(UPLOAD_DIR, { recursive: true }, (err) => {
+      if (err) return send(res, 500, err.message);
+      const name = `${base}${ext}`;
+      fs.writeFile(path.join(UPLOAD_DIR, name), Buffer.concat(chunks), (err2) => {
+        if (err2) return send(res, 500, err2.message);
+        console.log(`[${new Date().toLocaleTimeString()}] imagen guardada: common/niveles/${name}`);
+        send(res, 200, JSON.stringify({ path: `common/niveles/${name}` }), TYPES['.json']);
+      });
+    });
+  });
+}
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
 
   if (url.pathname === '/api/ping') return send(res, 200, '{"ok":true}', TYPES['.json']);
   if (url.pathname === '/api/levels') {
     if (req.method === 'PUT') return saveLevels(req, res);
+    return send(res, 405, 'Usá PUT');
+  }
+  if (url.pathname === '/api/upload') {
+    if (req.method === 'PUT') return saveImage(req, res, url);
     return send(res, 405, 'Usá PUT');
   }
 

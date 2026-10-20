@@ -367,6 +367,46 @@ function wireDrag(list) {
 const levelDialog = document.getElementById('levelDialog');
 const levelForm = document.getElementById('levelForm');
 let editing = null; // index being edited, or null when adding
+const LEVEL_FIELDS = ['name', 'creator', 'verifier', 'levelId', 'difficulty', 'video', 'verifiedAt', 'thumbnail', 'background', 'description'];
+
+const bgPreview = document.getElementById('bgPreview');
+const bgFile = document.getElementById('bgFile');
+
+function paintBgPreview() {
+  const src = levelForm.elements.background.value;
+  bgPreview.style.backgroundImage = src ? `url("${src}")` : '';
+  bgPreview.textContent = src ? '' : 'sin fondo';
+  document.getElementById('bgClear').disabled = !src;
+}
+
+bgFile.addEventListener('change', async () => {
+  const file = bgFile.files[0];
+  bgFile.value = '';
+  if (!file) return;
+  if (!canSave) {
+    toast('para subir fondos necesitás el servidor local (npm start)', true);
+    return;
+  }
+  const ext = (file.name.match(/\.(jpe?g|png|webp|gif)$/i) || [])[0]?.toLowerCase();
+  if (!ext) { toast('formato no soportado: usá jpg, png, webp o gif', true); return; }
+  const base = slugify(levelForm.elements.name.value || 'nivel', new Set());
+  const name = `${base}-${Date.now().toString(36)}${ext}`;
+  bgPreview.textContent = 'subiendo…';
+  try {
+    const res = await fetch(`api/upload?name=${encodeURIComponent(name)}`, { method: 'PUT', body: file });
+    if (!res.ok) throw new Error(await res.text());
+    levelForm.elements.background.value = (await res.json()).path;
+    paintBgPreview();
+  } catch (err) {
+    toast(`no se pudo subir: ${err.message}`, true);
+    paintBgPreview();
+  }
+});
+
+document.getElementById('bgClear').addEventListener('click', () => {
+  levelForm.elements.background.value = '';
+  paintBgPreview();
+});
 
 function openLevelDialog(index) {
   editing = index;
@@ -377,14 +417,16 @@ function openLevelDialog(index) {
   document.getElementById('positionField').hidden = !!level;
   const f = levelForm.elements;
   if (level) {
-    for (const k of ['name', 'creator', 'verifier', 'levelId', 'difficulty', 'video', 'verifiedAt', 'thumbnail', 'description']) {
+    for (const k of LEVEL_FIELDS) {
       f[k].value = level[k] ?? '';
     }
   } else {
     f.position.value = data.levels.length + 1;
     f.position.max = data.levels.length + 1;
     f.verifiedAt.value = today();
+    f.background.value = '';
   }
+  paintBgPreview();
   levelDialog.showModal();
   f.name.focus();
 }
@@ -393,7 +435,7 @@ levelForm.addEventListener('submit', (e) => {
   if (e.submitter?.value !== 'ok') return;
   const f = levelForm.elements;
   const fields = {};
-  for (const k of ['name', 'creator', 'verifier', 'levelId', 'difficulty', 'video', 'verifiedAt', 'thumbnail', 'description']) {
+  for (const k of LEVEL_FIELDS) {
     const v = f[k].value.trim();
     if (v) fields[k] = v;
   }
@@ -411,7 +453,7 @@ levelForm.addEventListener('submit', (e) => {
     toast(`"${level.name}" agregado en #${pos}`);
   } else {
     const level = data.levels[editing];
-    for (const k of ['name', 'creator', 'verifier', 'levelId', 'difficulty', 'video', 'verifiedAt', 'thumbnail', 'description']) {
+    for (const k of LEVEL_FIELDS) {
       if (fields[k]) level[k] = fields[k];
       else delete level[k];
     }

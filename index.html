@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>porotos list</title>
   <meta name="description" content="la lista de demons de nuestro gdps">
-  <script>try { if (localStorage.getItem('porotos-theme') === 'night') document.documentElement.dataset.theme = 'night'; } catch {}</script>
+  <script>try { if (localStorage.getItem('porotos-theme') !== 'day') document.documentElement.dataset.theme = 'night'; } catch {}</script>
   <link rel="stylesheet" href="css/aero.css">
 </head>
 <body>
@@ -18,8 +18,8 @@
     <div class="pane">
       <nav class="sidebar" aria-label="secciones">
         <div class="nav-group">
-          <div class="nav-title">lista</div>
-          <a class="nav-btn" href="#/" data-nav="list"><i data-icon="cube"></i>niveles</a>
+          <div class="nav-title">principal</div>
+          <a class="nav-btn" href="#/" data-nav="list"><i data-icon="cube"></i>lista</a>
           <a class="nav-btn" href="#/leaderboard" data-nav="leaderboard"><i data-icon="trophy"></i>leaderboard</a>
         </div>
         <div class="nav-group">

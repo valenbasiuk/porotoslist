@@ -46,8 +46,17 @@ export function ytId(url) {
 
 export function thumbFor(level) {
   if (level.thumbnail) return level.thumbnail;
+  if (level.background) return level.background;
   const id = ytId(level.video);
   return id ? `https://i.ytimg.com/vi/${id}/mqdefault.jpg` : null;
+}
+
+// Attributes that put the level's background capture behind an element.
+export function bgAttrs(level, cls) {
+  if (!level.background) return `class="${cls}"`;
+  // Absolute URL: a relative one inside a custom property would resolve against css/.
+  const src = new URL(level.background, location.href).href;
+  return `class="${cls} has-bg" style="--bg: url('${esc(src)}')"`;
 }
 
 export function today() {
@@ -205,7 +214,7 @@ export function initChrome() {
   const root = document.documentElement;
   let saved = null;
   try { saved = localStorage.getItem('porotos-theme'); } catch { /* storage unavailable */ }
-  if (saved === 'night') root.dataset.theme = 'night';
+  if (saved !== 'day') root.dataset.theme = 'night'; // night is the default
 
   const btn = document.getElementById('themeToggle');
   if (btn) {
