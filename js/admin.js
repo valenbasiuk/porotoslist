@@ -83,7 +83,7 @@ function logChange(type, level, from, to) {
   }
   if (mine && type === 'remove' && mine.type === 'add') { removeLog(mine); return; }
   if (mine) removeLog(mine);
-  const entry = { date: today(), type, level: level.name, levelId: level.id, from: mine?.type === 'move' ? mine.from : from, to };
+  const entry = { date: (type === 'add' && level.verifiedAt) || today(), type, level: level.name, levelId: level.id, from: mine?.type === 'move' ? mine.from : from, to };
   data.changelog.unshift(entry);
   sessionLog.add(entry);
 }

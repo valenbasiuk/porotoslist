@@ -10,7 +10,7 @@
   },
   "levels": [
     {
-      "id": "el-keke",
+      "id": "storm",
       "name": "Storm",
       "creator": "sinder96",
       "verifier": "sinder96",
@@ -28,7 +28,7 @@
       "description": "bienvenido al sufrimiento...  cuidado con EMPAPARTE...  sobrevive si puedes..."
     },
     {
-      "id": "aqua-overdrive",
+      "id": "level-unsafe",
       "name": "level unsafe",
       "creator": "StormCell",
       "verifier": "StormCell",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "id": "vista-nightmare",
+      "id": "darkeress",
       "name": "darkeress",
       "creator": "sinder96",
       "verifier": "sinder96",
@@ -74,7 +74,7 @@
       "description": "bienvenido al sufrimiento eterno de la oscuridad..."
     },
     {
-      "id": "bubble-zone",
+      "id": "cara-a-cara",
       "name": "cara a cara",
       "creator": "Frenextroll",
       "verifier": "Frenextroll",
@@ -99,34 +99,34 @@
     {
       "date": "2026-10-19",
       "type": "add",
-      "level": "el keke",
-      "levelId": "el-keke",
+      "level": "Storm",
+      "levelId": "storm",
       "from": null,
       "to": 1
     },
     {
       "date": "2026-10-19",
       "type": "add",
-      "level": "Bubble Zone",
-      "levelId": "bubble-zone",
-      "from": null,
-      "to": 3
-    },
-    {
-      "date": "2026-10-19",
-      "type": "add",
-      "level": "Vista Nightmare",
-      "levelId": "vista-nightmare",
+      "level": "level unsafe",
+      "levelId": "level-unsafe",
       "from": null,
       "to": 2
     },
     {
       "date": "2026-10-19",
       "type": "add",
-      "level": "Aqua Overdrive",
-      "levelId": "aqua-overdrive",
+      "level": "darkeress",
+      "levelId": "darkeress",
       "from": null,
-      "to": 1
+      "to": 3
+    },
+    {
+      "date": "2026-10-19",
+      "type": "add",
+      "level": "cara a cara",
+      "levelId": "cara-a-cara",
+      "from": null,
+      "to": 4
     }
   ]
 }

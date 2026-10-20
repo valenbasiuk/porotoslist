@@ -54,7 +54,7 @@ function renderList() {
     </div>
     <div class="table levels">
       <div class="thead">
-        <span>#</span><span></span><span>nivel</span><span class="c-creator">creador</span><span class="c-diff">dificultad</span><span class="c-people num">victors</span>
+        <span>#</span><span></span><span>nivel</span><span class="c-creator">creador</span><span class="c-verifier">verificador</span><span class="c-diff">dificultad</span><span class="c-people num">victors</span>
       </div>
       <div id="levelRows"></div>
     </div>`;
@@ -86,6 +86,7 @@ function paintRows() {
         <div class="thumb">${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy">` : '<span class="no-video">sin video</span>'}</div>
         <span class="cell lvl-name">${esc(level.name)}</span>
         <span class="cell soft c-creator">${esc(level.creator || '—')}</span>
+        <span class="cell soft c-verifier">${esc(level.verifier || '—')}</span>
         <span class="cell">${diffCell(level.difficulty)}</span>
         <span class="cell num people c-people">${ICONS.people}${victorsOf(level).length}</span>
       </a>`;
@@ -189,13 +190,22 @@ function renderLeaderboard() {
 /* ---------- Changelog ----------------------------------------------------- */
 
 function renderChangelog() {
+  // A level's entry into the list is dated by its verification date.
+  const dated = data.changelog.map((e) => {
+    const level = e.type === 'add' && data.levels.find((l) => l.id === e.levelId);
+    return { ...e, date: (level && level.verifiedAt) || e.date };
+  });
+  dated.sort((a, b) => String(b.date).localeCompare(String(a.date)));
   const byDay = new Map();
-  for (const entry of data.changelog) {
+  for (const entry of dated) {
     if (!byDay.has(entry.date)) byDay.set(entry.date, []);
     byDay.get(entry.date).push(entry);
   }
   const text = (e) => {
-    const name = `<b>${esc(e.level)}</b>`;
+    const current = data.levels.find((l) => l.id === e.levelId);
+    const name = current
+      ? `<a href="#/level/${encodeURIComponent(current.id)}"><b>${esc(current.name)}</b></a>`
+      : `<b>${esc(e.level)}</b>`;
     if (e.type === 'add') return `${name} entró en el puesto #${e.to}`;
     if (e.type === 'remove') return `${name} salió de la lista (estaba #${e.from})`;
     if (e.type === 'move') return `${name} ${e.to < e.from ? 'subió' : 'bajó'} de #${e.from} a #${e.to}`;

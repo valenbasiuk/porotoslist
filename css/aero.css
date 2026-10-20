@@ -393,7 +393,8 @@ a.trow:hover, .trow.clickable:hover {
 .trow .soft { color: var(--ink-soft); }
 .trow .num { text-align: right; font-variant-numeric: tabular-nums; }
 
-.levels { --cols: 26px 96px minmax(0, 1fr) 110px 128px 40px; }
+.levels { --cols: 26px 84px minmax(0, 1fr) 92px 92px 116px 34px; }
+.levels .thead, .levels .trow { gap: 8px; }
 .levels .trow { padding-top: 5px; padding-bottom: 5px; }
 .lvl-name { font-size: 14.5px; font-weight: 600; }
 
@@ -636,7 +637,7 @@ dialog .titlebar h1 { font-size: 15px; }
   .statusbar { flex-wrap: wrap; height: auto; padding: 3px 8px; gap: 2px 12px; }
 
   .levels { --cols: 24px 76px minmax(0, 1fr) 20px; }
-  .levels .c-creator, .levels .c-people { display: none; }
+  .levels .c-creator, .levels .c-verifier, .levels .c-people { display: none; }
   .levels .diff span, .levels .thead .c-diff { visibility: hidden; }
   .levels .diff span { display: none; }
   .board { --cols: 24px minmax(0, 1fr) 56px; }
