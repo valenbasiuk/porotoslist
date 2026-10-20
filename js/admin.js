@@ -1,5 +1,5 @@
 import {
-  loadData, normalize, esc, fmtDate, today, slugify,
+  loadData, normalize, esc, today, slugify,
   victorsOf, buildLeaderboard, parseEnjoyment, initChrome, toast, ICONS,
 } from './common.js';
 
@@ -12,8 +12,18 @@ let savedJson;          // what's on disk right now
 let canSave = false;    // true when served by server.js
 const sessionLog = new Set(); // changelog entries created since the last save
 let flashId = null;
+let adminView = 'levels'; // 'levels' | 'log'
 
 initChrome();
+
+document.querySelectorAll('[data-view]').forEach((a) => {
+  a.addEventListener('click', (e) => {
+    e.preventDefault();
+    adminView = a.dataset.view;
+    document.querySelectorAll('[data-view]').forEach((b) => b.classList.toggle('active', b === a));
+    render();
+  });
+});
 
 try {
   data = await loadData();
@@ -86,11 +96,28 @@ function logChange(type, level, from, to) {
   const entry = { date: (type === 'add' && level.verifiedAt) || today(), type, level: level.name, levelId: level.id, from: mine?.type === 'move' ? mine.from : from, to };
   data.changelog.unshift(entry);
   sessionLog.add(entry);
+  sortLog();
 }
 
 function removeLog(entry) {
   data.changelog = data.changelog.filter((e) => e !== entry);
   sessionLog.delete(entry);
+}
+
+// Newest day first. The sort is stable, so the manual order within a day is kept.
+function sortLog() {
+  data.changelog.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+}
+
+// A level's "added" entry follows its verification date.
+function syncAddDate(level) {
+  const entry = data.changelog.find((e) => e.type === 'add' && e.levelId === level.id);
+  if (entry && level.verifiedAt) entry.date = level.verifiedAt;
+  sortLog();
+}
+
+function sortCompletions(level) {
+  level.completions.sort((a, b) => String(a.date).localeCompare(String(b.date)));
 }
 
 /* ---------- Mutations ----------------------------------------------------- */
@@ -145,16 +172,34 @@ function render() {
   const dirty = isDirty();
   document.getElementById('playerList').innerHTML = allPlayers().map((p) => `<option value="${esc(p)}">`).join('');
 
-  view.innerHTML = `
+  const head = (title, extra = '') => `
     ${canSave ? '' : `<div class="notice">estás sin el servidor local, así que <b>guardar</b> descarga un <code>levels.json</code>
       que tenés que poner en <code>data/</code>. para guardar directo, corré <code>npm start</code>.</div>`}
     <div class="view-head">
-      <h2>niveles</h2>
+      <h2>${title}</h2>
       <span class="grow"></span>
-      <button class="btn" id="addLevel" type="button">${ICONS.plus}agregar nivel</button>
+      ${extra}
       <button class="btn green" id="saveBtn" type="button" title="ctrl+s" ${dirty ? '' : 'disabled'}>
         ${ICONS.save}${canSave ? 'guardar' : 'descargar json'}</button>
-    </div>
+    </div>`;
+
+  status.innerHTML = `
+    <span>${canSave ? 'servidor local conectado' : 'sin servidor (modo descarga)'}</span>
+    <span class="grow"></span>
+    <span>${dirty ? 'cambios sin guardar' : 'todo guardado'}</span>`;
+
+  if (adminView === 'log') {
+    view.innerHTML = head('novedades');
+    renderLog();
+  } else {
+    view.innerHTML = head('niveles', `<button class="btn" id="addLevel" type="button">${ICONS.plus}agregar nivel</button>`);
+    renderLevels();
+  }
+  document.getElementById('saveBtn').onclick = save;
+}
+
+function renderLevels() {
+  view.insertAdjacentHTML('beforeend', `
     <div class="table admin">
       <div class="thead">
         <span></span><span>puesto</span><span>nivel</span><span class="c-creator">creador</span><span class="c-people num">victors</span><span></span>
@@ -177,15 +222,9 @@ function render() {
         </div>`).join('')
       : '<div class="empty">lista vacía. tocá “agregar nivel” para arrancar.</div>'}
       </div>
-    </div>`;
-
-  status.innerHTML = `
-    <span>${canSave ? 'servidor local conectado' : 'sin servidor (modo descarga)'}</span>
-    <span class="grow"></span>
-    <span>${dirty ? 'cambios sin guardar' : 'todo guardado'}</span>`;
+    </div>`);
 
   document.getElementById('addLevel').onclick = () => openLevelDialog(null);
-  document.getElementById('saveBtn').onclick = save;
 
   const list = document.getElementById('adminList');
   list.querySelectorAll('.trow').forEach(wireRow);
@@ -196,6 +235,69 @@ function render() {
     if (row) { row.classList.add('flash'); row.scrollIntoView({ block: 'nearest' }); }
     flashId = null;
   }
+}
+
+const LOG_TYPES = { add: 'agregado', move: 'movido', remove: 'removido' };
+
+function renderLog() {
+  sortLog();
+  const log = data.changelog;
+  const sameDay = (i, j) => log[j] && log[j].date === log[i].date;
+  const posInput = (i, key) => `<input class="pos-input" type="number" min="1" data-i="${i}" data-key="${key}" value="${log[i][key] ?? ''}" aria-label="${key === 'from' ? 'desde' : 'puesto'}">`;
+
+  view.insertAdjacentHTML('beforeend', `
+    <div class="table log-edit">
+      <div class="thead">
+        <span></span><span>nivel</span><span>qué pasó</span><span>fecha</span><span>desde</span><span>top</span><span></span>
+      </div>
+      ${log.length ? log.map((e, i) => {
+        const level = data.levels.find((l) => l.id === e.levelId);
+        return `
+        <div class="trow">
+          <span class="dot ${esc(e.type)}"></span>
+          <span class="cell">${esc(level ? level.name : e.level)}</span>
+          <span class="cell soft">${LOG_TYPES[e.type] || esc(e.type)}</span>
+          <input class="date-input" type="date" data-i="${i}" value="${esc(e.date || '')}" aria-label="fecha">
+          ${e.type === 'add' ? '<span></span>' : posInput(i, 'from')}
+          ${e.type === 'remove' ? '<span></span>' : posInput(i, 'to')}
+          <div class="actions">
+            <button class="btn icon" data-act="up" data-i="${i}" title="pasó después" ${sameDay(i, i - 1) ? '' : 'disabled'}>${ICONS.up}</button>
+            <button class="btn icon" data-act="down" data-i="${i}" title="pasó antes" ${sameDay(i, i + 1) ? '' : 'disabled'}>${ICONS.down}</button>
+            <button class="btn icon red" data-act="del" data-i="${i}" title="borrar">${ICONS.trash}</button>
+          </div>
+        </div>`;
+      }).join('')
+      : '<div class="empty">sin novedades.</div>'}
+    </div>`);
+
+  view.querySelectorAll('.log-edit .date-input').forEach((input) => {
+    input.onchange = () => {
+      if (!input.value) return render();
+      log[Number(input.dataset.i)].date = input.value;
+      changed();
+    };
+  });
+  view.querySelectorAll('.log-edit .pos-input').forEach((input) => {
+    input.onchange = () => {
+      const n = parseInt(input.value, 10);
+      if (!Number.isFinite(n) || n < 1) return render();
+      log[Number(input.dataset.i)][input.dataset.key] = n;
+      changed();
+    };
+  });
+  view.querySelectorAll('.log-edit [data-act]').forEach((btn) => {
+    btn.onclick = () => {
+      const i = Number(btn.dataset.i);
+      if (btn.dataset.act === 'del') {
+        if (!confirm('¿borrar esta novedad?')) return;
+        removeLog(log[i]);
+      } else {
+        const j = btn.dataset.act === 'up' ? i - 1 : i + 1;
+        [log[i], log[j]] = [log[j], log[i]];
+      }
+      changed();
+    };
+  });
 }
 
 function wireRow(row) {
@@ -313,6 +415,7 @@ levelForm.addEventListener('submit', (e) => {
       if (fields[k]) level[k] = fields[k];
       else delete level[k];
     }
+    syncAddDate(level);
     flashId = level.id;
   }
   changed();
@@ -339,18 +442,51 @@ function paintComps() {
   const level = data.levels[compIndex];
   document.getElementById('compTitle').textContent = `victors · #${compIndex + 1} ${level.name}`;
   const victors = victorsOf(level);
+  const comps = level.completions;
+  const sameDay = (c, j) => comps[j] && comps[j].date === c.date;
   document.getElementById('compRows').innerHTML = `
-    <div class="thead"><span>#</span><span>jugador</span><span class="num">enjoyment</span><span class="c-date">fecha</span><span></span></div>
-    ${victors.length ? victors.map((v, i) => `
+    <div class="thead"><span>#</span><span>jugador</span><span class="num">enjoyment</span><span>fecha</span><span></span></div>
+    ${victors.length ? victors.map((v, i) => {
+      const ci = v.verifier ? -1 : comps.indexOf(v);
+      return `
     <div class="trow">
       <span class="soft">${i + 1}</span>
       <span class="cell">${esc(v.player)}${v.verifier ? '<span class="tag">verificador</span>' : ''}${v.video ? ` · <a href="${esc(v.video)}" target="_blank" rel="noopener">video</a>` : ''}</span>
       <input class="enjoy-input" type="text" inputmode="decimal" placeholder="—" data-enjoy="${esc(v.player)}"
         value="${typeof v.enjoyment === 'number' ? v.enjoyment : ''}" aria-label="enjoyment de ${esc(v.player)}">
-      <span class="cell soft c-date">${fmtDate(v.date)}</span>
-      ${v.verifier ? '<span></span>' : `<button class="btn icon red" data-player="${esc(v.player)}" title="borrar">${ICONS.trash}</button>`}
-    </div>`).join('')
+      <input class="date-input" type="date" data-date="${ci}" value="${esc(v.date || '')}" aria-label="fecha de ${esc(v.player)}">
+      ${v.verifier ? '<span></span>' : `<div class="actions">
+        <button class="btn icon" data-move="${ci}" data-dir="-1" title="se lo pasó antes" ${sameDay(v, ci - 1) ? '' : 'disabled'}>${ICONS.up}</button>
+        <button class="btn icon" data-move="${ci}" data-dir="1" title="se lo pasó después" ${sameDay(v, ci + 1) ? '' : 'disabled'}>${ICONS.down}</button>
+        <button class="btn icon red" data-player="${esc(v.player)}" title="borrar">${ICONS.trash}</button>
+      </div>`}
+    </div>`;
+    }).join('')
     : '<div class="empty">sin completions todavía.</div>'}`;
+  document.querySelectorAll('#compRows [data-date]').forEach((input) => {
+    input.onchange = () => {
+      if (!input.value) return paintComps();
+      const ci = Number(input.dataset.date);
+      if (ci < 0) {
+        level.verifiedAt = input.value;
+        syncAddDate(level);
+      } else {
+        comps[ci].date = input.value;
+        sortCompletions(level);
+      }
+      changed();
+      paintComps();
+    };
+  });
+  document.querySelectorAll('#compRows [data-move]').forEach((btn) => {
+    btn.onclick = () => {
+      const i = Number(btn.dataset.move);
+      const j = i + Number(btn.dataset.dir);
+      [comps[i], comps[j]] = [comps[j], comps[i]];
+      changed();
+      paintComps();
+    };
+  });
   document.querySelectorAll('#compRows [data-enjoy]').forEach((input) => {
     input.onchange = () => {
       const score = parseEnjoyment(input.value);
@@ -392,7 +528,7 @@ compForm.addEventListener('submit', (e) => {
   const score = parseEnjoyment(f.enjoyment.value);
   if (score !== null) entry.enjoyment = score;
   level.completions.push(entry);
-  level.completions.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+  sortCompletions(level);
   changed();
   paintComps();
   toast(`completion de ${player} agregada`);

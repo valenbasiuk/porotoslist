@@ -204,14 +204,10 @@ function renderLeaderboard() {
 /* ---------- Changelog ----------------------------------------------------- */
 
 function renderChangelog() {
-  // A level's entry into the list is dated by its verification date.
-  const dated = data.changelog.map((e) => {
-    const level = e.type === 'add' && data.levels.find((l) => l.id === e.levelId);
-    return { ...e, date: (level && level.verifiedAt) || e.date };
-  });
-  dated.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  // Newest day first; within a day, the order set in the admin.
+  const sorted = [...data.changelog].sort((a, b) => String(b.date).localeCompare(String(a.date)));
   const byDay = new Map();
-  for (const entry of dated) {
+  for (const entry of sorted) {
     if (!byDay.has(entry.date)) byDay.set(entry.date, []);
     byDay.get(entry.date).push(entry);
   }

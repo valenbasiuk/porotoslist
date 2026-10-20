@@ -19,7 +19,8 @@
       <nav class="sidebar" aria-label="acciones">
         <div class="nav-group">
           <div class="nav-title">admin</div>
-          <a class="nav-btn active" href="admin.html"><i data-icon="cube"></i>niveles</a>
+          <a class="nav-btn active" href="#" data-view="levels"><i data-icon="cube"></i>niveles</a>
+          <a class="nav-btn" href="#" data-view="log"><i data-icon="star"></i>novedades</a>
           <a class="nav-btn" href="#" id="openSettings"><i data-icon="gear"></i>ajustes</a>
         </div>
         <div class="nav-group">
@@ -76,7 +77,7 @@
     <div class="titlebar"><h1 id="compTitle">victors</h1></div>
     <div class="dialog-pane">
       <div class="dialog-body">
-        <div class="table victors" id="compRows"></div>
+        <div class="table victors-edit" id="compRows"></div>
         <form class="comp-add" id="compForm">
           <label class="field">jugador<input name="player" list="playerList" required autocomplete="off"></label>
           <label class="field">fecha<input name="date" type="date"></label>
