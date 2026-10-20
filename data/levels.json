@@ -78,7 +78,28 @@
         }
       ],
       "description": "bienvenido al sufrimiento eterno de la oscuridad...",
-      "background": "common/niveles/darkeress-mvgr9mws.png"
+      "background": "common/niveles/darkeress-mvgr9mws.png",
+      "video": "https://youtu.be/E6D0_dcjHVs"
+    },
+    {
+      "id": "ab",
+      "name": "ab",
+      "creator": "Frenextroll",
+      "verifier": "Frenextroll",
+      "levelId": "115",
+      "difficulty": "medium",
+      "rating": "epic",
+      "video": "https://youtu.be/jNvOOTGguYs",
+      "verifiedAt": "2026-10-20",
+      "background": "common/niveles/ab-mvh8ub9w.png",
+      "addedAt": "2026-10-20",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-20"
+        }
+      ],
+      "description": "corre robot"
     },
     {
       "id": "cara-a-cara",
@@ -102,10 +123,19 @@
       ],
       "description": "tucara a tucara",
       "background": "common/niveles/cara-a-cara-mvgrbbl7.png",
-      "rating": "featured"
+      "rating": "featured",
+      "video": "https://youtu.be/k5DEE2ejcdw"
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-20",
+      "type": "add",
+      "level": "ab",
+      "levelId": "ab",
+      "from": null,
+      "to": 4
+    },
     {
       "date": "2026-10-15",
       "type": "add",
