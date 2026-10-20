@@ -11,63 +11,79 @@
   "levels": [
     {
       "id": "el-keke",
-      "name": "el keke",
-      "creator": "valenmoe",
-      "verifier": "ejemplo2",
-      "levelId": "123",
+      "name": "Storm",
+      "creator": "sinder96",
+      "verifier": "sinder96",
+      "levelId": "113",
       "difficulty": "extreme",
-      "video": "https://www.youtube.com/watch?v=UYq0xU_7F98",
-      "verifiedAt": "2026-10-19",
-      "addedAt": "2026-10-19",
-      "completions": []
-    },
-    {
-      "id": "aqua-overdrive",
-      "name": "Aqua Overdrive",
-      "creator": "ejemplo1",
-      "verifier": "ejemplo1",
-      "levelId": "101",
-      "difficulty": "extreme",
-      "verifiedAt": "2026-10-10",
-      "description": "Nivel de ejemplo: borralo desde el panel admin.",
+      "video": "https://youtu.be/TN8YgUEFmAQ",
+      "verifiedAt": "2026-10-14",
       "addedAt": "2026-10-19",
       "completions": [
         {
-          "player": "ejemplo2",
+          "player": "HolaGD",
           "date": "2026-10-15"
+        }
+      ],
+      "description": "bienvenido al sufrimiento...  cuidado con EMPAPARTE...  sobrevive si puedes..."
+    },
+    {
+      "id": "aqua-overdrive",
+      "name": "level unsafe",
+      "creator": "StormCell",
+      "verifier": "StormCell",
+      "levelId": "104",
+      "difficulty": "insane",
+      "verifiedAt": "2026-10-13",
+      "description": "la ultima moneda es fake",
+      "addedAt": "2026-10-19",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-13"
+        },
+        {
+          "player": "HolaGD",
+          "date": "2026-10-14"
         }
       ]
     },
     {
       "id": "vista-nightmare",
-      "name": "Vista Nightmare",
-      "creator": "ejemplo2",
-      "verifier": "ejemplo3",
-      "levelId": "102",
-      "difficulty": "insane",
+      "name": "darkeress",
+      "creator": "sinder96",
+      "verifier": "sinder96",
+      "levelId": "105",
+      "difficulty": "hard",
       "verifiedAt": "2026-10-12",
       "addedAt": "2026-10-19",
       "completions": [
         {
-          "player": "ejemplo1",
-          "date": "2026-10-14"
+          "player": "valen",
+          "date": "2026-10-12"
         },
         {
-          "player": "ejemplo2",
-          "date": "2026-10-16"
+          "player": "HolaGD",
+          "date": "2026-10-12"
+        },
+        {
+          "player": "Frenextroll",
+          "date": "2026-10-13"
         }
-      ]
+      ],
+      "description": "bienvenido al sufrimiento eterno de la oscuridad..."
     },
     {
       "id": "bubble-zone",
-      "name": "Bubble Zone",
-      "creator": "ejemplo3",
-      "verifier": "ejemplo2",
-      "levelId": "103",
-      "difficulty": "hard",
-      "verifiedAt": "2026-10-13",
+      "name": "cara a cara",
+      "creator": "Frenextroll",
+      "verifier": "Frenextroll",
+      "levelId": "107",
+      "difficulty": "easy",
+      "verifiedAt": "2026-10-15",
       "addedAt": "2026-10-19",
-      "completions": []
+      "completions": [],
+      "description": "tucara a tucara"
     }
   ],
   "changelog": [
