@@ -24,10 +24,16 @@
           "player": "HolaGD",
           "date": "2026-10-15",
           "enjoyment": 6
+        },
+        {
+          "player": "valen",
+          "date": "2026-10-20",
+          "enjoyment": 3
         }
       ],
       "description": "bienvenido al sufrimiento...  cuidado con EMPAPARTE...  sobrevive si puedes...",
-      "background": "common/niveles/storm-mvgr2q8k.png"
+      "background": "common/niveles/storm-mvgr2q8k.png",
+      "verifierEnjoyment": 3.5
     },
     {
       "id": "level-unsafe",
@@ -74,12 +80,14 @@
         },
         {
           "player": "Frenextroll",
-          "date": "2026-10-14"
+          "date": "2026-10-14",
+          "enjoyment": 5
         }
       ],
       "description": "bienvenido al sufrimiento eterno de la oscuridad...",
       "background": "common/niveles/darkeress-mvgr9mws.png",
-      "video": "https://youtu.be/E6D0_dcjHVs"
+      "video": "https://youtu.be/E6D0_dcjHVs",
+      "verifierEnjoyment": 8
     },
     {
       "id": "ab",
