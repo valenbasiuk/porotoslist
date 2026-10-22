@@ -10,6 +10,21 @@
   },
   "levels": [
     {
+      "id": "whitewash",
+      "name": "Whitewash",
+      "creator": "valen",
+      "verifier": "valen",
+      "levelId": "116",
+      "difficulty": "extreme",
+      "rating": "epic",
+      "video": "https://www.youtube.com/watch?v=LE0g9vlfKs0",
+      "verifiedAt": "2026-10-22",
+      "background": "common/niveles/whitewash-mvk6bpuy.png",
+      "description": "look, just be yourself!",
+      "addedAt": "2026-10-22",
+      "completions": []
+    },
+    {
       "id": "storm",
       "name": "Storm",
       "creator": "sinder96",
@@ -104,7 +119,8 @@
       "completions": [
         {
           "player": "valen",
-          "date": "2026-10-20"
+          "date": "2026-10-20",
+          "enjoyment": 10
         }
       ],
       "description": "corre robot"
@@ -136,6 +152,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-22",
+      "type": "add",
+      "level": "Whitewash",
+      "levelId": "whitewash",
+      "from": null,
+      "to": 1
+    },
     {
       "date": "2026-10-20",
       "type": "add",
