@@ -22,7 +22,15 @@
       "background": "common/niveles/whitewash-mvk6bpuy.png",
       "description": "look, just be yourself!",
       "addedAt": "2026-10-22",
-      "completions": []
+      "completions": [
+        {
+          "player": "HolaGD",
+          "date": "2026-10-26",
+          "video": "https://youtu.be/UjCaSz-ExJ0",
+          "enjoyment": 8
+        }
+      ],
+      "verifierEnjoyment": 10
     },
     {
       "id": "storm",
@@ -49,6 +57,20 @@
       "description": "bienvenido al sufrimiento...  cuidado con EMPAPARTE...  sobrevive si puedes...",
       "background": "common/niveles/storm-mvgr2q8k.png",
       "verifierEnjoyment": 3.5
+    },
+    {
+      "id": "sendero-de-la-vida",
+      "name": "sendero de la vida",
+      "creator": "HolaGD",
+      "verifier": "HolaGD",
+      "levelId": "118",
+      "difficulty": "extreme",
+      "video": "https://youtu.be/XbTOCTLErpw",
+      "verifiedAt": "2026-10-26",
+      "description": "3",
+      "addedAt": "2026-10-26",
+      "completions": [],
+      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png"
     },
     {
       "id": "level-unsafe",
@@ -164,6 +186,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-26",
+      "type": "add",
+      "level": "sendero de la vida",
+      "levelId": "sendero-de-la-vida",
+      "from": null,
+      "to": 3
+    },
     {
       "date": "2026-10-22",
       "type": "add",
