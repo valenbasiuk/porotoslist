@@ -70,7 +70,8 @@
       "description": "3",
       "addedAt": "2026-10-26",
       "completions": [],
-      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png"
+      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
+      "rating": "epic"
     },
     {
       "id": "level-unsafe",
