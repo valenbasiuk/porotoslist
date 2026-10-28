@@ -51,7 +51,13 @@
         {
           "player": "valen",
           "date": "2026-10-20",
-          "enjoyment": 3
+          "enjoyment": 2.5
+        },
+        {
+          "player": "chicho",
+          "date": "2026-10-28",
+          "video": "https://youtu.be/6SdiGfPoAIY",
+          "enjoyment": 0
         }
       ],
       "description": "bienvenido al sufrimiento...  cuidado con EMPAPARTE...  sobrevive si puedes...",
@@ -101,7 +107,8 @@
         }
       ],
       "background": "common/niveles/level-unsafe-mvgr83kt.png",
-      "rating": "epic"
+      "rating": "epic",
+      "video": "https://youtu.be/UH3ISoLZFaM?si=lmbC7msUoLsUfySp"
     },
     {
       "id": "darkeress",
