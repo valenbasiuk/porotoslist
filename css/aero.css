@@ -155,8 +155,8 @@ a:hover { text-decoration: underline; }
 /* ---------- Window ------------------------------------------------------- */
 
 .aero-window {
-  width: min(990px, 100%);
-  height: min(830px, calc(100dvh - 60px));
+  width: min(1070px, 100%);
+  height: min(910px, calc(100dvh - 40px));
   min-height: 440px;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -395,9 +395,9 @@ a.trow:hover, .trow.clickable:hover {
 .trow .soft { color: var(--ink-soft); }
 .trow .num { text-align: right; font-variant-numeric: tabular-nums; }
 
-.levels { --cols: 26px 140px minmax(0, 1fr) 96px 96px 116px 34px; }
+.levels { --cols: 26px 164px minmax(0, 1fr) 100px 100px 120px 34px; }
 .levels .thead, .levels .trow { gap: 8px; }
-.levels .trow { padding-top: 10px; padding-bottom: 10px; }
+.levels .trow { padding-top: 11px; padding-bottom: 11px; }
 .lvl-name { font-size: 14.5px; font-weight: 600; }
 
 .rank {

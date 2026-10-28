@@ -1,8 +1,0 @@
-poné acá tus imágenes:
-
-  wallpaper.jpg         fondo de la página (obligatorio para que no quede el degradé por defecto)
-  wallpaper-noche.jpg   fondo para el tema noche (opcional; si no está, usa wallpaper.jpg)
-  logo.png              logo de la barra de título (opcional; si no está, usa el poroto)
-
-si tu wallpaper es .png o .webp, cambiá la extensión en la variable --wallpaper
-al principio de css/aero.css.

@@ -10,9 +10,16 @@ export const DIFFICULTIES = {
   extreme: { label: 'extreme demon', color: '#a052ff' },
 };
 
-// Points a completion of the level at `rank` (1-based) is worth.
-export function pointsFor(rank) {
-  return Math.round(250 * Math.pow(0.92, rank - 1) * 10) / 10;
+export const TOP_POINTS = 500;
+export const LAST_POINTS = 150;
+
+// Points a completion of the level at `rank` (1-based) is worth in a list of `total` levels:
+// the #1 gives TOP_POINTS, the last gives LAST_POINTS, and the rest fall on a curve in between,
+// so the spread always covers the whole list no matter how many levels it has.
+export function pointsFor(rank, total) {
+  if (total <= 1) return TOP_POINTS;
+  const t = (rank - 1) / (total - 1);
+  return Math.round(TOP_POINTS * Math.pow(LAST_POINTS / TOP_POINTS, t) * 10) / 10;
 }
 
 export async function loadData() {
@@ -115,7 +122,7 @@ export function buildLeaderboard(levels) {
       const key = v.player.toLowerCase();
       if (!players.has(key)) players.set(key, { name: v.player, points: 0, entries: [] });
       const p = players.get(key);
-      const pts = pointsFor(rank);
+      const pts = pointsFor(rank, levels.length);
       p.points += pts;
       p.entries.push({ level, rank, pts, verifier: !!v.verifier });
     }

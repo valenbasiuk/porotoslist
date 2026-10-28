@@ -53,7 +53,8 @@ git push
 
 ## Puntos
 
-Cada nivel da `250 × 0.92^(puesto − 1)` puntos a cada jugador que lo pasó (verificador incluido).
+El #1 da 500 puntos y el último 150; el resto cae en una curva entre medio según el puesto,
+así que los puntos se reacomodan cuando entra un nivel nuevo (verificador incluido).
 La fórmula está en `pointsFor` dentro de [`js/common.js`](js/common.js).
 
 ## Estructura

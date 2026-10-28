@@ -1,5 +1,5 @@
 import {
-  loadData, esc, bgAttrs, ytId, thumbFor, fmtDate, diffCell, rankOrb, pointsFor,
+  loadData, esc, bgAttrs, ytId, thumbFor, fmtDate, diffCell, rankOrb, pointsFor, TOP_POINTS, LAST_POINTS,
   victorsOf, buildLeaderboard, enjoymentOf, initChrome, ICONS,
 } from './common.js';
 
@@ -118,7 +118,7 @@ function renderLevel(id) {
     ['verificador', esc(level.verifier || '—')],
     ['id del nivel', esc(level.levelId || '—')],
     ['dificultad', diffCell(level.difficulty, level.rating, true) || '—'],
-    ['puntos', pointsFor(rank)],
+    ['puntos', pointsFor(rank, data.levels.length)],
     ['agregado', fmtDate(level.addedAt)],
   ];
 
@@ -239,7 +239,7 @@ function renderInfo() {
     <div class="view-head"><h2>info</h2></div>
     <div class="table prose">
       ${paragraphs}
-      <p>cada nivel da <b>${pointsFor(1)}</b> puntos en el #1 y va bajando 8% por puesto
-        (#5: ${pointsFor(5)}, #10: ${pointsFor(10)}, #25: ${pointsFor(25)}).</p>
+      <p>el #1 da <b>${TOP_POINTS}</b> puntos y el último da <b>${LAST_POINTS}</b>. el resto se reparte entre medio según
+        el puesto, así que cuando entra un nivel nuevo los puntos de todos se reacomodan.</p>
     </div>`;
 }

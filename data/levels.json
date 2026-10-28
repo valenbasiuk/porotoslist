@@ -69,7 +69,13 @@
       "verifiedAt": "2026-10-26",
       "description": "3",
       "addedAt": "2026-10-26",
-      "completions": [],
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-28",
+          "enjoyment": 10
+        }
+      ],
       "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
       "rating": "epic"
     },
