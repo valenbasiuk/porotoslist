@@ -150,6 +150,15 @@
           "player": "valen",
           "date": "2026-10-20",
           "enjoyment": 10
+        },
+        {
+          "player": "chicho",
+          "date": "2026-10-27",
+          "enjoyment": 9
+        },
+        {
+          "player": "LG",
+          "date": "2026-10-27"
         }
       ],
       "description": "corre robot"
