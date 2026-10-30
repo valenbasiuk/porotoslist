@@ -121,7 +121,8 @@
         },
         {
           "player": "chicho",
-          "date": "2026-10-30"
+          "date": "2026-10-30",
+          "enjoyment": 5
         }
       ],
       "background": "common/niveles/level-unsafe-mvgr83kt.png",
@@ -149,7 +150,7 @@
         {
           "player": "chicho",
           "date": "2026-10-30",
-          "enjoyment": 10
+          "enjoyment": 5
         }
       ],
       "verifierEnjoyment": 10
