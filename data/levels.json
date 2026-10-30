@@ -129,6 +129,32 @@
       "video": "https://youtu.be/UH3ISoLZFaM?si=lmbC7msUoLsUfySp"
     },
     {
+      "id": "tambor",
+      "name": "tambor",
+      "creator": "HolaGD",
+      "verifier": "HolaGD",
+      "levelId": "119",
+      "difficulty": "insane",
+      "video": "https://www.youtube.com/watch?v=MKraWXl2y1Q",
+      "verifiedAt": "2026-10-30",
+      "background": "common/niveles/tambor-mvv7itca.png",
+      "description": "escucho el tambor",
+      "addedAt": "2026-10-30",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-30",
+          "enjoyment": 10
+        },
+        {
+          "player": "chicho",
+          "date": "2026-10-30",
+          "enjoyment": 10
+        }
+      ],
+      "verifierEnjoyment": 10
+    },
+    {
       "id": "darkeress",
       "name": "darkeress",
       "creator": "sinder96",
@@ -250,6 +276,22 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-30",
+      "type": "move",
+      "level": "tambor",
+      "levelId": "tambor",
+      "from": 5,
+      "to": 6
+    },
+    {
+      "date": "2026-10-30",
+      "type": "add",
+      "level": "tambor",
+      "levelId": "tambor",
+      "from": null,
+      "to": 5
+    },
     {
       "date": "2026-10-30",
       "type": "add",

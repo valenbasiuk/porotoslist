@@ -118,7 +118,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: var(--font);
-  font-size: 13.5px;
+  font-size: 16.5px;
   color: var(--ink);
   background: #2a7fc8;
   display: grid;
@@ -155,7 +155,7 @@ a:hover { text-decoration: underline; }
 /* ---------- Window ------------------------------------------------------- */
 
 .aero-window {
-  width: min(1070px, 100%);
+  width: min(1120px, 100%);
   height: min(910px, calc(100dvh - 40px));
   min-height: 440px;
   display: grid;
@@ -180,7 +180,7 @@ a:hover { text-decoration: underline; }
 .logo { width: 32px; height: 32px; flex: none; object-fit: contain; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35)); }
 .titlebar h1 {
   margin: 0;
-  font-size: 19px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--title-ink);
   text-shadow: var(--title-glow);
@@ -191,7 +191,7 @@ a:hover { text-decoration: underline; }
 
 .pane {
   display: grid;
-  grid-template-columns: 172px minmax(0, 1fr);
+  grid-template-columns: 196px minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) auto;
   min-height: 0;
   border: 1px solid var(--pane-border);
@@ -225,10 +225,10 @@ a:hover { text-decoration: underline; }
 :root[data-theme="night"] .nav-group { box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8); }
 
 .nav-title {
-  height: 19px;
-  line-height: 17px;
+  height: 23px;
+  line-height: 21px;
   text-align: center;
-  font-size: 12.5px;
+  font-size: 15.5px;
   color: var(--hdr-ink);
   background: var(--hdr-bg);
   border: 1px solid var(--hdr-border);
@@ -252,11 +252,11 @@ a:hover { text-decoration: underline; }
 :root[data-theme="night"] .nav-btn, :root[data-theme="night"] .btn { box-shadow: none; }
 
 .nav-btn {
-  height: 25px;
+  height: 30px;
   padding: 0 6px;
-  font-size: 12.5px;
+  font-size: 15.5px;
 }
-.nav-btn svg { width: 16px; height: 16px; flex: none; }
+.nav-btn svg { width: 18px; height: 18px; flex: none; }
 .nav-btn:hover, .btn:hover:not(:disabled) {
   background: var(--btn-hover-bg);
   border-color: var(--btn-hover-border);
@@ -285,15 +285,15 @@ a:hover { text-decoration: underline; }
 .btn {
   display: inline-flex;
   justify-content: center;
-  height: 24px;
+  height: 28px;
   padding: 0 12px;
-  font-size: 12.5px;
+  font-size: 15.5px;
   white-space: nowrap;
 }
 .btn:active:not(:disabled) { filter: brightness(0.94); }
 .btn:disabled { opacity: 0.5; cursor: default; }
-.btn svg { width: 13px; height: 13px; fill: currentColor; flex: none; }
-.btn.icon { width: 26px; padding: 0; }
+.btn svg { width: 15px; height: 15px; fill: currentColor; flex: none; }
+.btn.icon { width: 30px; padding: 0; }
 .btn.red {
   color: #fff;
   border-color: #7d1a14;
@@ -319,7 +319,7 @@ a:hover { text-decoration: underline; }
 }
 .view-head h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 400;
   color: var(--heading);
 }
@@ -340,9 +340,9 @@ input, select, textarea { font: inherit; }
 
 .search {
   width: 200px;
-  height: 24px;
+  height: 28px;
   padding: 0 24px 0 7px;
-  font-size: 12.5px;
+  font-size: 15.5px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667788' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M20 20l-4.6-4.6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 14px;
@@ -366,9 +366,9 @@ input, select, textarea { font: inherit; }
 }
 
 .thead {
-  height: 24px;
+  height: 28px;
   padding: 0 8px;
-  font-size: 12px;
+  font-size: 15px;
   color: var(--col-ink);
   background: var(--col-bg);
   border-bottom: 1px solid var(--col-border);
@@ -395,25 +395,25 @@ a.trow:hover, .trow.clickable:hover {
 .trow .soft { color: var(--ink-soft); }
 .trow .num { text-align: right; font-variant-numeric: tabular-nums; }
 
-.levels { --cols: 26px 164px minmax(0, 1fr) 100px 100px 120px 34px; }
+.levels { --cols: 30px 176px minmax(0, 1fr) 112px 112px 148px 56px; }
 .levels .thead, .levels .trow { gap: 8px; }
-.levels .trow { padding-top: 11px; padding-bottom: 11px; }
-.lvl-name { font-size: 14.5px; font-weight: 600; }
+.levels .trow { padding-top: 12px; padding-bottom: 12px; }
+.lvl-name { font-size: 17.5px; font-weight: 600; }
 
 .rank {
   width: 24px;
-  height: 24px;
+  height: 28px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   color: #fff;
   text-shadow: 0 0 2px #03294f, 0 1px 1px #03294f;
   background: radial-gradient(circle at 35% 25%, #e6f6ff 0 6%, #6cc4f2 24%, #1a7fc8 60%, #0a4b85);
   box-shadow: inset 0 -2px 3px rgba(0, 30, 70, 0.35), 0 1px 2px rgba(0, 30, 70, 0.4);
 }
-.rank.big { width: 34px; height: 34px; font-size: 15px; flex: none; }
+.rank.big { width: 34px; height: 34px; font-size: 18px; flex: none; }
 
 .thumb {
   position: relative;
@@ -431,24 +431,24 @@ a.trow:hover, .trow.clickable:hover {
   inset: 0;
   display: grid;
   place-items: center;
-  font-size: 11px;
+  font-size: 14px;
   color: #5b6f86;
 }
 :root[data-theme="night"] .thumb .no-video { color: #888; }
 
-.diff { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; }
-.diff svg { width: 24px; height: 24px; flex: none; }
-.diff svg.rated { width: 30px; height: 31px; margin: -5px -3px -2px -3px; }
+.diff { display: inline-flex; align-items: center; gap: 5px; font-size: 15.5px; }
+.diff svg { width: 28px; height: 28px; flex: none; }
+.diff svg.rated { width: 35px; height: 36px; margin: -6px -4px -2px -3px; }
 
 .people { display: inline-flex; align-items: center; gap: 4px; justify-content: flex-end; }
-.people svg { width: 13px; height: 13px; fill: currentColor; opacity: 0.75; }
+.people svg { width: 15px; height: 15px; fill: currentColor; opacity: 0.75; }
 
 .tag {
   display: inline-block;
   margin-left: 6px;
   padding: 0 5px;
-  font-size: 11px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 19px;
   border-radius: 2px;
   color: #fff;
   background: var(--green-bg);
@@ -462,7 +462,7 @@ a.trow:hover, .trow.clickable:hover {
 /* ---------- Level page -------------------------------------------------- */
 
 .detail-head { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
-.detail-head h2 { margin: 0; font-size: 22px; font-weight: 600; color: var(--heading); line-height: 1.2; }
+.detail-head h2 { margin: 0; font-size: 25px; font-weight: 600; color: var(--heading); line-height: 1.2; }
 
 /* level background capture: faded in from the left so text stays readable */
 .has-bg { position: relative; isolation: isolate; overflow: hidden; }
@@ -502,10 +502,10 @@ a.trow:hover, .trow.clickable:hover {
 
 .box { margin-top: 12px; }
 .box-title {
-  height: 22px;
-  line-height: 20px;
+  height: 26px;
+  line-height: 24px;
   padding: 0 8px;
-  font-size: 12.5px;
+  font-size: 15.5px;
   color: var(--hdr-ink);
   background: var(--hdr-bg);
   border: 1px solid var(--hdr-border);
@@ -515,13 +515,13 @@ a.trow:hover, .trow.clickable:hover {
 .box-title + .table { border-radius: 0 0 2px 2px; }
 
 .kv { --cols: 130px minmax(0, 1fr); }
-.kv .trow { min-height: 26px; padding: 3px 8px; }
+.kv .trow { min-height: 30px; padding: 3px 8px; }
 .kv .k { color: var(--ink-soft); }
 
-.victors { --cols: 22px minmax(0, 1fr) 76px 120px 56px; }
+.victors { --cols: 26px minmax(0, 1fr) 84px 140px 56px; }
 
 .enjoy { display: flex; align-items: center; gap: 12px; padding: 10px 12px; }
-.enjoy-score { font-size: 18px; font-weight: 600; color: var(--heading); }
+.enjoy-score { font-size: 21px; font-weight: 600; color: var(--heading); }
 .meter {
   width: 180px;
   height: 15px;
@@ -539,20 +539,20 @@ a.trow:hover, .trow.clickable:hover {
   background: linear-gradient(180deg, #e3ffe0 0%, #8fe48a 40%, #2fb52f 50%, #61d961 100%);
   box-shadow: inset -1px 0 0 rgba(0, 80, 0, 0.35);
 }
-.enjoy-input { width: 64px; height: 22px; text-align: right; padding: 0 4px; color: var(--ink); background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 2px; }
+.enjoy-input { width: 70px; height: 26px; text-align: right; padding: 0 4px; color: var(--ink); background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 2px; }
 .enjoy-input:focus { outline: none; border-color: var(--input-focus); }
 
-.date-input { height: 22px; padding: 0 4px; font-size: 12.5px; color: var(--ink); background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 2px; }
+.date-input { height: 26px; padding: 0 4px; font-size: 15.5px; color: var(--ink); background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 2px; }
 .date-input:focus { outline: none; border-color: var(--input-focus); }
-.victors-edit { --cols: 22px minmax(0, 1fr) 64px 128px 86px; }
-.log-edit { --cols: 10px minmax(0, 1fr) 70px 128px 48px 48px 86px; }
-.log-edit .pos-input { width: 48px; }
-.board { --cols: 26px minmax(0, 1fr) 60px minmax(0, 1.1fr) 60px; }
+.victors-edit { --cols: 26px minmax(0, 1fr) 70px 150px 100px; }
+.log-edit { --cols: 10px minmax(0, 1fr) 90px 150px 56px 56px 100px; }
+.log-edit .pos-input { width: 56px; }
+.board { --cols: 26px minmax(0, 1fr) 70px minmax(0, 1.1fr) 70px; }
 .board .pts { font-weight: 700; color: var(--heading); }
 .board-detail {
   margin: 0 1px 4px;
   padding: 4px 10px 8px 44px;
-  font-size: 12.5px;
+  font-size: 15.5px;
 }
 .board-detail div { padding: 1px 0; }
 
@@ -566,7 +566,7 @@ a.trow:hover, .trow.clickable:hover {
   align-items: center;
   gap: 8px;
   margin: 12px 0 4px;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--heading);
 }
 .day-head::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--hdr-border), transparent); }
@@ -583,9 +583,9 @@ a.trow:hover, .trow.clickable:hover {
   display: flex;
   align-items: center;
   gap: 16px;
-  height: 23px;
+  height: 27px;
   padding: 0 8px;
-  font-size: 12px;
+  font-size: 15px;
   color: var(--ink-soft);
   background: var(--status-bg);
   border-top: 1px solid var(--pane-border);
@@ -594,7 +594,7 @@ a.trow:hover, .trow.clickable:hover {
 
 /* ---------- Admin ------------------------------------------------------- */
 
-.admin { --cols: 14px 48px minmax(0, 1fr) 110px 40px 196px; }
+.admin { --cols: 14px 52px minmax(0, 1fr) 120px 56px 236px; }
 .admin .trow { padding-top: 3px; padding-bottom: 3px; }
 .admin .trow.dragging { opacity: 0.45; }
 .admin .trow.drop-before { box-shadow: 0 -2px 0 #2aa833; }
@@ -604,13 +604,13 @@ a.trow:hover, .trow.clickable:hover {
 
 .grip { cursor: grab; color: var(--ink-soft); display: grid; place-items: center; }
 .grip svg { width: 10px; height: 16px; fill: currentColor; }
-.pos-input { width: 48px; height: 22px; text-align: center; font-weight: 600; }
+.pos-input { width: 52px; height: 26px; text-align: center; font-weight: 600; }
 .actions { display: flex; gap: 3px; justify-content: flex-end; }
 
 .notice {
   margin-bottom: 10px;
   padding: 6px 9px;
-  font-size: 12.5px;
+  font-size: 15.5px;
   color: #3b3200;
   background: #ffffe1;
   border: 1px solid #c9c091;
@@ -633,7 +633,7 @@ dialog.aero-dialog {
 dialog.aero-dialog.wide { width: min(620px, calc(100vw - 24px)); }
 dialog.aero-dialog::backdrop { background: rgba(0, 0, 0, 0.2); }
 dialog .titlebar { height: 34px; }
-dialog .titlebar h1 { font-size: 15px; }
+dialog .titlebar h1 { font-size: 18px; }
 .dialog-pane {
   border: 1px solid var(--pane-border);
   border-radius: 2px;
@@ -651,9 +651,9 @@ dialog .titlebar h1 { font-size: 15px; }
 }
 
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
-.field { display: flex; flex-direction: column; gap: 3px; font-size: 12.5px; color: var(--ink-soft); }
+.field { display: flex; flex-direction: column; gap: 3px; font-size: 15.5px; color: var(--ink-soft); }
 .field.full { grid-column: 1 / -1; }
-.field input, .field select, .field textarea { padding: 3px 6px; font-size: 13px; min-height: 24px; }
+.field input, .field select, .field textarea { padding: 3px 6px; font-size: 16px; min-height: 28px; }
 
 .comp-add { display: grid; grid-template-columns: 1.3fr 1fr 1.5fr 0.7fr auto; gap: 8px; align-items: end; margin-top: 10px; }
 
@@ -664,7 +664,7 @@ dialog .titlebar h1 { font-size: 15px; }
   transform: translate(-50%, 10px);
   opacity: 0;
   padding: 7px 12px;
-  font-size: 12.5px;
+  font-size: 15.5px;
   color: #1b1b1b;
   background: linear-gradient(180deg, #ffffff, #e4e5f0);
   border: 1px solid #767676;
@@ -723,7 +723,7 @@ dialog .titlebar h1 { font-size: 15px; }
   aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
-  font-size: 11.5px;
+  font-size: 14.5px;
   color: var(--ink-soft);
   border: 1px solid #fff;
   outline: 1px solid #9aa7b6;
