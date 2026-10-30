@@ -86,6 +86,20 @@
       "rating": "epic"
     },
     {
+      "id": "viernes",
+      "name": "Viernes",
+      "creator": "valen",
+      "verifier": "valen",
+      "levelId": "144",
+      "difficulty": "insane",
+      "rating": "epic",
+      "video": "https://youtu.be/Ff_AUzw8G3I",
+      "verifiedAt": "2026-10-30",
+      "background": "common/niveles/viernes-mvv6ndhz.png",
+      "addedAt": "2026-10-30",
+      "completions": []
+    },
+    {
       "id": "level-unsafe",
       "name": "level unsafe",
       "creator": "StormCell",
@@ -104,6 +118,10 @@
         {
           "player": "HolaGD",
           "date": "2026-10-14"
+        },
+        {
+          "player": "chicho",
+          "date": "2026-10-30"
         }
       ],
       "background": "common/niveles/level-unsafe-mvgr83kt.png",
@@ -145,6 +163,25 @@
       "background": "common/niveles/darkeress-mvgr9mws.png",
       "video": "https://youtu.be/E6D0_dcjHVs",
       "verifierEnjoyment": 8
+    },
+    {
+      "id": "green-road",
+      "name": "Green Road",
+      "creator": "Checho",
+      "verifier": "Checho",
+      "levelId": "131",
+      "difficulty": "medium",
+      "verifiedAt": "2026-10-29",
+      "background": "common/niveles/green-road-mvv6e1wu.png",
+      "description": "porotos edition",
+      "addedAt": "2026-10-30",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-30",
+          "enjoyment": 8.5
+        }
+      ]
     },
     {
       "id": "ab",
@@ -213,6 +250,22 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-30",
+      "type": "add",
+      "level": "Viernes",
+      "levelId": "viernes",
+      "from": null,
+      "to": 4
+    },
+    {
+      "date": "2026-10-29",
+      "type": "add",
+      "level": "Green Road",
+      "levelId": "green-road",
+      "from": null,
+      "to": 6
+    },
     {
       "date": "2026-10-26",
       "type": "add",
