@@ -33,6 +33,27 @@
       "verifierEnjoyment": 10
     },
     {
+      "id": "sendero-de-la-vida",
+      "name": "sendero de la vida",
+      "creator": "HolaGD",
+      "verifier": "HolaGD",
+      "levelId": "118",
+      "difficulty": "extreme",
+      "video": "https://youtu.be/XbTOCTLErpw",
+      "verifiedAt": "2026-10-26",
+      "description": "3",
+      "addedAt": "2026-10-26",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-28",
+          "enjoyment": 10
+        }
+      ],
+      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
+      "rating": "epic"
+    },
+    {
       "id": "storm",
       "name": "Storm",
       "creator": "sinder96",
@@ -63,27 +84,6 @@
       "description": "bienvenido al sufrimiento...  cuidado con EMPAPARTE...  sobrevive si puedes...",
       "background": "common/niveles/storm-mvgr2q8k.png",
       "verifierEnjoyment": 3.5
-    },
-    {
-      "id": "sendero-de-la-vida",
-      "name": "sendero de la vida",
-      "creator": "HolaGD",
-      "verifier": "HolaGD",
-      "levelId": "118",
-      "difficulty": "extreme",
-      "video": "https://youtu.be/XbTOCTLErpw",
-      "verifiedAt": "2026-10-26",
-      "description": "3",
-      "addedAt": "2026-10-26",
-      "completions": [
-        {
-          "player": "valen",
-          "date": "2026-10-28",
-          "enjoyment": 10
-        }
-      ],
-      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
-      "rating": "epic"
     },
     {
       "id": "viernes",
@@ -207,6 +207,11 @@
           "player": "valen",
           "date": "2026-10-30",
           "enjoyment": 8.5
+        },
+        {
+          "player": "chicho",
+          "date": "2026-10-31",
+          "enjoyment": 9
         }
       ]
     },
@@ -277,6 +282,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-31",
+      "type": "move",
+      "level": "sendero de la vida",
+      "levelId": "sendero-de-la-vida",
+      "from": 3,
+      "to": 2
+    },
     {
       "date": "2026-10-30",
       "type": "move",
