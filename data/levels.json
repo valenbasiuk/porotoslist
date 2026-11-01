@@ -33,6 +33,33 @@
       "verifierEnjoyment": 10
     },
     {
+      "id": "eternal",
+      "name": "ETERNAL",
+      "creator": "valen, sinder96",
+      "verifier": "sinder96",
+      "levelId": "148",
+      "difficulty": "extreme",
+      "rating": "epic",
+      "video": "https://youtu.be/IqhScVIdcEk",
+      "verifiedAt": "2026-10-31",
+      "addedAt": "2026-10-31",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-10-31",
+          "enjoyment": 8
+        },
+        {
+          "player": "HolaGD",
+          "date": "2026-10-31",
+          "enjoyment": 7.5
+        }
+      ],
+      "description": "colaboracion entre yo y valen :3 - Verificado por: sinder96",
+      "verifierEnjoyment": 7,
+      "background": "common/niveles/eternal-mvx7h13a.png"
+    },
+    {
       "id": "sendero-de-la-vida",
       "name": "sendero de la vida",
       "creator": "HolaGD",
@@ -282,6 +309,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-10-31",
+      "type": "add",
+      "level": "ETERNAL",
+      "levelId": "eternal",
+      "from": null,
+      "to": 2
+    },
     {
       "date": "2026-10-31",
       "type": "move",
