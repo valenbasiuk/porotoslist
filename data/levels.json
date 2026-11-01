@@ -124,7 +124,14 @@
       "verifiedAt": "2026-10-30",
       "background": "common/niveles/viernes-mvv6ndhz.png",
       "addedAt": "2026-10-30",
-      "completions": []
+      "completions": [
+        {
+          "player": "LG",
+          "date": "2026-11-01",
+          "enjoyment": 7.5
+        }
+      ],
+      "verifierEnjoyment": 10
     },
     {
       "id": "level-unsafe",
