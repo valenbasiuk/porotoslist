@@ -253,6 +253,26 @@
       "verifierEnjoyment": 8
     },
     {
+      "id": "challengo-ciego",
+      "name": "CHALLENGO ciego",
+      "creator": "jacks147",
+      "verifier": "Frenextroll",
+      "levelId": "152",
+      "difficulty": "hard",
+      "verifiedAt": "2026-11-10",
+      "background": "common/niveles/challengo-ciego-mwargmwt.png",
+      "description": "no hayteeee",
+      "addedAt": "2026-11-10",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-11-10",
+          "enjoyment": 9.2
+        }
+      ],
+      "verifierEnjoyment": 9
+    },
+    {
       "id": "green-road",
       "name": "Green Road",
       "creator": "Checho",
@@ -343,6 +363,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-10",
+      "type": "add",
+      "level": "CHALLENGO ciego",
+      "levelId": "challengo-ciego",
+      "from": null,
+      "to": 10
+    },
     {
       "date": "2026-11-10",
       "type": "add",
