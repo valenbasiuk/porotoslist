@@ -33,6 +33,28 @@
       "verifierEnjoyment": 10
     },
     {
+      "id": "bomba",
+      "name": "Bomba",
+      "creator": "Frenex",
+      "verifier": "Frenex",
+      "levelId": "153",
+      "difficulty": "extreme",
+      "rating": "epic",
+      "video": "https://youtu.be/Bgd5M1mkxTs",
+      "verifiedAt": "2026-11-10",
+      "background": "common/niveles/bomba-mwaqky27.png",
+      "description": "600 atts prueba maomeno",
+      "addedAt": "2026-11-10",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-11-10",
+          "video": "https://www.youtube.com/watch?v=SAcq_lDJ184",
+          "enjoyment": 8.8
+        }
+      ]
+    },
+    {
       "id": "eternal",
       "name": "ETERNAL",
       "creator": "valen, sinder96",
@@ -75,6 +97,11 @@
           "player": "valen",
           "date": "2026-10-28",
           "enjoyment": 10
+        },
+        {
+          "player": "chicho",
+          "date": "2026-11-10",
+          "enjoyment": 5
         }
       ],
       "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
@@ -316,6 +343,14 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-10",
+      "type": "add",
+      "level": "Bomba",
+      "levelId": "bomba",
+      "from": null,
+      "to": 2
+    },
     {
       "date": "2026-10-31",
       "type": "add",
