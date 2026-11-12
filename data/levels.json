@@ -33,26 +33,30 @@
       "verifierEnjoyment": 10
     },
     {
-      "id": "bomba",
-      "name": "Bomba",
-      "creator": "Frenextroll",
-      "verifier": "Frenextroll",
-      "levelId": "153",
+      "id": "sendero-de-la-vida",
+      "name": "sendero de la vida",
+      "creator": "HolaGD",
+      "verifier": "HolaGD",
+      "levelId": "118",
       "difficulty": "extreme",
-      "rating": "epic",
-      "video": "https://youtu.be/Bgd5M1mkxTs",
-      "verifiedAt": "2026-11-10",
-      "background": "common/niveles/bomba-mwaqky27.png",
-      "description": "600 atts prueba maomeno",
-      "addedAt": "2026-11-10",
+      "video": "https://youtu.be/XbTOCTLErpw",
+      "verifiedAt": "2026-10-26",
+      "description": "3",
+      "addedAt": "2026-10-26",
       "completions": [
         {
           "player": "valen",
+          "date": "2026-10-28",
+          "enjoyment": 10
+        },
+        {
+          "player": "chicho",
           "date": "2026-11-10",
-          "video": "https://www.youtube.com/watch?v=SAcq_lDJ184",
-          "enjoyment": 8.8
+          "enjoyment": 5
         }
-      ]
+      ],
+      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
+      "rating": "epic"
     },
     {
       "id": "eternal",
@@ -82,30 +86,26 @@
       "background": "common/niveles/eternal-mvx7h13a.png"
     },
     {
-      "id": "sendero-de-la-vida",
-      "name": "sendero de la vida",
-      "creator": "HolaGD",
-      "verifier": "HolaGD",
-      "levelId": "118",
+      "id": "bomba",
+      "name": "Bomba",
+      "creator": "Frenextroll",
+      "verifier": "Frenextroll",
+      "levelId": "153",
       "difficulty": "extreme",
-      "video": "https://youtu.be/XbTOCTLErpw",
-      "verifiedAt": "2026-10-26",
-      "description": "3",
-      "addedAt": "2026-10-26",
+      "rating": "epic",
+      "video": "https://youtu.be/Bgd5M1mkxTs",
+      "verifiedAt": "2026-11-10",
+      "background": "common/niveles/bomba-mwaqky27.png",
+      "description": "600 atts prueba maomeno",
+      "addedAt": "2026-11-10",
       "completions": [
         {
           "player": "valen",
-          "date": "2026-10-28",
-          "enjoyment": 10
-        },
-        {
-          "player": "chicho",
           "date": "2026-11-10",
-          "enjoyment": 5
+          "video": "https://www.youtube.com/watch?v=SAcq_lDJ184",
+          "enjoyment": 8.8
         }
-      ],
-      "background": "common/niveles/sendero-de-la-vida-mvq07v05.png",
-      "rating": "epic"
+      ]
     },
     {
       "id": "storm",
@@ -156,6 +156,11 @@
           "player": "LG",
           "date": "2026-11-01",
           "enjoyment": 7.5
+        },
+        {
+          "player": "chicho",
+          "date": "2026-11-12",
+          "enjoyment": 8
         }
       ],
       "verifierEnjoyment": 10
@@ -363,6 +368,22 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-12",
+      "type": "move",
+      "level": "ETERNAL",
+      "levelId": "eternal",
+      "from": 4,
+      "to": 3
+    },
+    {
+      "date": "2026-11-12",
+      "type": "move",
+      "level": "sendero de la vida",
+      "levelId": "sendero-de-la-vida",
+      "from": 4,
+      "to": 2
+    },
     {
       "date": "2026-11-10",
       "type": "add",
