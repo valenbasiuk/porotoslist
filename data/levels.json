@@ -86,6 +86,22 @@
       "background": "common/niveles/eternal-mvx7h13a.png"
     },
     {
+      "id": "tuntin",
+      "name": "tuntin",
+      "creator": "valen, Frenextroll",
+      "verifier": "valen",
+      "levelId": "157",
+      "difficulty": "extreme",
+      "rating": "epic",
+      "video": "https://youtu.be/kTyAuDhGDCA",
+      "verifiedAt": "2026-11-14",
+      "background": "common/niveles/tuntin-mwgh049h.png",
+      "description": "hecho con amor por frenex y yo verificado por yo",
+      "addedAt": "2026-11-14",
+      "completions": [],
+      "verifierEnjoyment": 10
+    },
+    {
       "id": "bomba",
       "name": "Bomba",
       "creator": "Frenextroll",
@@ -104,6 +120,10 @@
           "date": "2026-11-10",
           "video": "https://www.youtube.com/watch?v=SAcq_lDJ184",
           "enjoyment": 8.8
+        },
+        {
+          "player": "HolaGD",
+          "date": "2026-11-12"
         }
       ]
     },
@@ -258,6 +278,26 @@
       "verifierEnjoyment": 8
     },
     {
+      "id": "6",
+      "name": "6",
+      "creator": "poroto",
+      "verifier": "poroto",
+      "levelId": "156",
+      "difficulty": "hard",
+      "rating": "featured",
+      "verifiedAt": "2026-11-11",
+      "background": "common/niveles/6-mwggxq6z.png",
+      "description": "no lo termine porque me dio paja,,,,, me lo pase y no se estabagrabando nice",
+      "addedAt": "2026-11-14",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-11-14",
+          "enjoyment": 9.5
+        }
+      ]
+    },
+    {
       "id": "challengo-ciego",
       "name": "CHALLENGO ciego",
       "creator": "jacks147",
@@ -369,6 +409,14 @@
   ],
   "changelog": [
     {
+      "date": "2026-11-14",
+      "type": "add",
+      "level": "tuntin",
+      "levelId": "tuntin",
+      "from": null,
+      "to": 4
+    },
+    {
       "date": "2026-11-12",
       "type": "move",
       "level": "ETERNAL",
@@ -383,6 +431,14 @@
       "levelId": "sendero-de-la-vida",
       "from": 4,
       "to": 2
+    },
+    {
+      "date": "2026-11-11",
+      "type": "add",
+      "level": "6",
+      "levelId": "6",
+      "from": null,
+      "to": 10
     },
     {
       "date": "2026-11-10",
