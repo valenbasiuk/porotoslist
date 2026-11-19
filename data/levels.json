@@ -10,6 +10,26 @@
   },
   "levels": [
     {
+      "id": "woble",
+      "name": "woble",
+      "creator": "Frenextroll",
+      "verifier": "Frenextroll",
+      "levelId": "159",
+      "difficulty": "extreme",
+      "video": "https://youtu.be/7_RS_G4G3tk",
+      "verifiedAt": "2026-11-14",
+      "background": "common/niveles/woble-mwnpm8dj.png",
+      "description": "459",
+      "addedAt": "2026-11-19",
+      "completions": [
+        {
+          "player": "HolaGD",
+          "date": "2026-11-19",
+          "video": "https://youtu.be/uIWzLDdqerk"
+        }
+      ]
+    },
+    {
       "id": "whitewash",
       "name": "Whitewash",
       "creator": "valen",
@@ -79,6 +99,12 @@
           "player": "HolaGD",
           "date": "2026-10-31",
           "enjoyment": 7.5
+        },
+        {
+          "player": "chicho",
+          "date": "2026-11-18",
+          "video": "https://youtu.be/j4RBENwIgVw",
+          "enjoyment": 5
         }
       ],
       "description": "colaboracion entre yo y valen :3 - Verificado por: sinder96",
@@ -216,6 +242,27 @@
       "video": "https://youtu.be/UH3ISoLZFaM?si=lmbC7msUoLsUfySp"
     },
     {
+      "id": "paroniria",
+      "name": "Paroniria",
+      "creator": "Abuigsito",
+      "verifier": "Abuigsito",
+      "levelId": "165",
+      "difficulty": "insane",
+      "rating": "epic",
+      "video": "https://youtu.be/Va23KscrBZY",
+      "verifiedAt": "2026-11-15",
+      "description": ":)",
+      "addedAt": "2026-11-19",
+      "completions": [
+        {
+          "player": "valen",
+          "date": "2026-11-15",
+          "video": "https://youtu.be/I_EU11HbS3k",
+          "enjoyment": 8.5
+        }
+      ]
+    },
+    {
       "id": "tambor",
       "name": "tambor",
       "creator": "HolaGD",
@@ -270,6 +317,11 @@
           "date": "2026-10-25",
           "video": "https://youtu.be/qvMH_Bd5iOI",
           "enjoyment": 5
+        },
+        {
+          "player": "Wumbus",
+          "date": "2026-11-19",
+          "enjoyment": 5
         }
       ],
       "description": "bienvenido al sufrimiento eterno de la oscuridad...",
@@ -313,6 +365,11 @@
           "player": "valen",
           "date": "2026-11-10",
           "enjoyment": 9.2
+        },
+        {
+          "player": "chicho",
+          "date": "2026-11-19",
+          "enjoyment": 8
         }
       ],
       "verifierEnjoyment": 9
@@ -413,6 +470,22 @@
     }
   ],
   "changelog": [
+    {
+      "date": "2026-11-15",
+      "type": "add",
+      "level": "Paroniria",
+      "levelId": "paroniria",
+      "from": null,
+      "to": 10
+    },
+    {
+      "date": "2026-11-14",
+      "type": "add",
+      "level": "woble",
+      "levelId": "woble",
+      "from": null,
+      "to": 1
+    },
     {
       "date": "2026-11-14",
       "type": "add",
