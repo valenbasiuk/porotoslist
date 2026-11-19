@@ -24,8 +24,13 @@
       "completions": [
         {
           "player": "HolaGD",
-          "date": "2026-11-19",
+          "date": "2026-11-14",
           "video": "https://youtu.be/uIWzLDdqerk"
+        },
+        {
+          "player": "valen",
+          "date": "2026-11-19",
+          "enjoyment": 7.5
         }
       ]
     },
@@ -370,6 +375,10 @@
           "player": "chicho",
           "date": "2026-11-19",
           "enjoyment": 8
+        },
+        {
+          "player": "HolaGD",
+          "date": "2026-11-19"
         }
       ],
       "verifierEnjoyment": 9
