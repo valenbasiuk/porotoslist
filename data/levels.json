@@ -265,7 +265,8 @@
           "video": "https://youtu.be/I_EU11HbS3k",
           "enjoyment": 8.5
         }
-      ]
+      ],
+      "verifierEnjoyment": 10
     },
     {
       "id": "tambor",
@@ -289,6 +290,12 @@
           "player": "chicho",
           "date": "2026-10-30",
           "enjoyment": 5
+        },
+        {
+          "player": "Abuigsito",
+          "date": "2026-11-19",
+          "video": "https://youtu.be/5QLRaxin6P4",
+          "enjoyment": 2
         }
       ],
       "verifierEnjoyment": 10
